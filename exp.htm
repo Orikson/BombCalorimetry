@@ -1,1 +1,1489 @@
-<!doctype html public "-//w3c//dtd html 4.0 transitional//en"><html><head>   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">   <meta name="GENERATOR" content="Mozilla/4.74 (Macintosh; U; PPC) [Netscape]"><style>.point{position: absolute;}</style><script LANGUAGE="JavaScript">var lang = "EN";var nam = unescape(document.URL)var idx = nam.indexOf("?")	if (idx > -1) lang = nam.substring(idx + 1);var fired = 0;var Ltime = new Image();	Ltime.src = lang + "time.gif";var Lbal = new Image();	Lbal.src = lang + "bal.gif";var Lburn = new Image();	Lburn.src = lang + "burn.gif";var Lchange = new Image();	Lchange.src = lang + "change.gif";var Lext = new Image();	Lext.src = lang + "ext.gif";var Lrtemp = new Image();	Lrtemp.src = lang + "rtemp.gif";var Lview = new Image();	Lview.src = lang + "view.gif";var Lwafter = new Image();	Lwafter.src = lang + "wafter.gif";var Lwbefore = new Image();	Lwbefore.src = lang + "wbefore.gif";var Lwgt = new Image();	Lwgt.src = lang + "wgt.gif";var Lwtemp = new Image();	Lwtemp.src = lang + "wtemp.gif";var Lwait = new Image();	Lwait.src = lang + "wait.gif";var Lgraph = new Image();	Lgraph.src = lang + "graph.gif";var Lprint = new Image();	Lprint.src = lang + "print.gif";var SBlack = new Image();	SBlack.src = "black.gif";var SBlue = new Image();	SBlue.src = "blue.gif";var SRed = new Image();	SRed.src = "red.gif";var STemp = new Image();	STemp.src = "temp.gif";var ACode = '<div class="point" id="GG"><img src= "XXX" border = "0" width="WW" height="1"></div>\n';var ECode = '<div class="point" id="GG"><img src= "XXX" border = "0" width="5" height="1"></div>\n';var DCode = '<div class="point" id="GG"><img src= "XXX" border = "0" width="1" height="HH"></div>\n';var BCode = '<div class="point" id="A3"><img src= "XXX" border = "0" width="22" height="13"></div>\n';var CCode =  '<div class="point" id="A4"><img src= "XXX" name = "time" border = "0" width="120" height="30"></div>\n'; var HCode = '<div class="point" id="A1"><img src= "hgrid.gif" border = "0" width="399" height="28"></div>\n';var VCode = '<div class="point" id="A2"><img src= "vgrid.gif" border = "0" width="44" height="209"></div>\n';  var ArrowCode = '<div class="point" id="XX"><A Href = "" onClick = "movit(YY);return false;"><img src= "ZZ.gif" border = "0" width="16" height="13"></a></div>\n';var spc = new Image();spc.src = "spc.gif";var yourName = parent.frames[0].yourName;var Sample = new Array(20);var times = new Array();var temps = new Array();var textCode = "";var leftCode = "";var topCode = "";var hideme = "document.GG.visibility = 'hide'";var showme = "document.GG.visibility = 'show'";var KCode = "";var sKey = "";var lKey = "";var isay = "";var i = 1;var minXpos = 70;var maxYpos = 350;//250 if (document.getElementById) maxYpos = 250;var who = "";var choice = parent.frames[0].choice;var sn = 0;var beforeMsg = "<font color=blue><b>";var afterMsg = "</b></font>";var textStr = "";var textinit = " ";var textfinal = " ";var temp = " ";var tempinit = " ";var tempfinal = " ";var textLeft = minXpos + 150;var textTop = maxYpos - 200;var initLeft = minXpos + 250;var initTop = maxYpos - 30;var finalLeft = minXpos + 30;var finalTop = maxYpos  - 220;var cBomb = parent.frames[0].cBomb;var cContents = 50;var cParts = 150;var cWater = 8368 + 8*Math.random();var cRig = cWater + cParts;var cTotal = cBomb + cContents + cWater + cParts;var sampleWgt = Math.round(9000 + 2000*Math.random())/10000;var tWater = 24 + 0.1*Math.round(0.5 + 4*Math.random());var tRoom = parent.frames[0].tRoom;var wireWgt = (200 + 100*Math.random())/10000;var wireLoss = (19.99 + 80*Math.random())/10000;var wireAfter = wireWgt - wireLoss;var kBomb  = 1500;var kGas = 100;var kWater = 12;var aslope = 0;var bslope = 0;var aint = 0;var bint = 0;var adev = 0;var bdev = 0;var Tinit = 0;var Tfinal = 0;var Xpos = 128;var dataList = "";parent.frames[0].tWater = tWater;		aint = Math.round(10000*sampleWgt);		aint = aint.toString();		if (aint.length < 5){								while (aint.length < 4) aint = "0" + aint;				       bint = "0." + aint;	          }else{				       bint = aint.charAt(0) + "." + aint.substring(1);					}	sampleWgt = bint;	aint = 0;	bint = 0;	  	parent.frames[0].sampleWgt = sampleWgt;if (document.layers) {leftCode = 'document.GG.left = ';topCode = 'document.GG.top = ';refY = 62;}if ((document.getElementById) && (!document.all)) {topCode = 'document.getElementById("GG").style.top = ';leftCode = 'document.getElementById("GG").style.left = ';showme = 'document.getElementById("GG").style.visibility = "visible"';hideme = 'document.getElementById("GG").style.visibility = "hidden"';document.write("<font color = '#FFFFCC'>A</font>");} if (document.all) {leftCode = 'document.all.GG.style.left = ';topCode = 'document.all.GG.style.top = ';	hideme = "document.all.GG.style.visibility = 'hidden'";	showme = "document.all.GG.style.visibility = 'visible'";}Sample[0] = {sName:"iron wire",sC:"",sH:"",sO:"",sG:"",sM:"",sE:"5858"};Sample[1] = {sName:"benzoic acid",sC:"7",sH:"6",sO:"2",sG:"0.5",sM:"122.113",sE:"26415"};Sample[2] = {sName:"stearic acid",sC:"18",sH:"36",sO:"2",sG:"8",sM:"284.473",sE:"39585"};Sample[3] = {sName:"palmitic acid",sC:"16",sH:"32",sO:"2",sG:"7",sM:"256.419",sE:"38845"};Sample[4] = {sName:"myristic acid",sC:"14",sH:"28",sO:"2",sG:"6",sM:"228.365",sE:"37932"};Sample[5] = {sName:"lauric acid",sC:"12",sH:"24",sO:"2",sG:"5",sM:"200.311",sE:"36768"};Sample[6] = {sName:"capric acid",sC:"10",sH:"20",sO:"2",sG:"4",sM:"172.257",sE:"35236"};Sample[7] = {sName:"fumaric acid",sC:"4",sH:"4",sO:"4",sG:"-1",sM:"116.052",sE:"11522"};Sample[8] = {sName:"maleic acid",sC:"4",sH:"4",sO:"4",sG:"-1",sM:"116.052",sE:"11699"};Sample[9] = {sName:"maleic anhydride",sC:"4",sH:"2",sO:"3",sG:"-1",sM:"98.042",sE:"14198"};Sample[10] = {sName:"naphthalene",sC:"10",sH:"8",sO:"0",sG:"2",sM:"128.174",sE:"40171"};Sample[11] = {sName:"benzil",sC:"14",sH:"10",sO:"2",sG:"1.5",sM:"210.222",sE:"32316"};Sample[12] = {sName:"diphenyl",sC:"12",sH:"10",sO:"0",sG:"2.5",sM:"154.212",sE:"40483"};Sample[13] = {sName:"decane",sC:"10",sH:"22",sO:"0",sG:"5.5",sM:"142.285",sE:"47253"};Sample[14] = {sName:"eicosane",sC:"20",sH:"42",sO:"0",sG:"11.5",sM:"282.555",sE:"47034"};Sample[15] = {sName:"galactose",sC:"6",sH:"12",sO:"6",sG:"0",sM:"180.126",sE:"15565"};Sample[16] = {sName:"glucose",sC:"6",sH:"12",sO:"6",sG:"0",sM:"180.126",sE:"15559"};Sample[17] = {sName:"fructose",sC:"6",sH:"12",sO:"6",sG:"0",sM:"180.126",sE:"15609"};Sample[18] = {sName:"sucrose",sC:"12",sH:"22",sO:"11",sG:"0",sM:"342.241",sE:"16482"};if ((lang == "FR") && (!document.getElementById)){Sample[1].sName = "Acide benzo&iuml;que";Sample[2].sName = "Acide st&eacute;arique";Sample[3].sName = "Acide palmitique";Sample[4].sName = "Acide myristiqueD&eacute;cane (liq)";Sample[5].sName = "Acide laurique";Sample[6].sName = "Acide caprique";Sample[7].sName = "Acide fumarique";Sample[8].sName = "Acide mal&eacute;ique";Sample[9].sName = "Anhydride mal&eacute;ique";Sample[10].sName = "Naphthal&egrave;ne";Sample[11].sName = "Benzil";Sample[12].sName = "Diph&eacute;nyle";Sample[13].sName = "D&eacute;cane (liq)";Sample[18].sName = "Saccharose";}loadme();function loadme(){textTop = maxYpos - 200;document.write(HCode);eval(leftCode.replace(/GG/, 'A1') + (minXpos + 30));eval(topCode.replace(/GG/, 'A1') + (maxYpos));document.write(VCode);eval(leftCode.replace(/GG/, 'A2') + (minXpos));eval(topCode.replace(/GG/, 'A2') + (maxYpos - 188));document.write(BCode.replace(/"XXX"/,STemp.src));eval(leftCode.replace(/GG/, 'A3') + (minXpos - 40));eval(topCode.replace(/GG/, 'A3') + (maxYpos - 120));document.write(CCode.replace(/"XXX"/,Ltime.src));eval(leftCode.replace(/GG/, 'A4') + (minXpos + 175));eval(topCode.replace(/GG/, 'A4') + (maxYpos + 27 ));//22document.write(DCode.replace(/GG/,'A5').replace(/HH/,200).replace(/"XXX"/,SBlue.src));eval(leftCode.replace(/GG/, 'A5') + (minXpos + 160));eval(topCode.replace(/GG/, 'A5') + (maxYpos - 185));eval(hideme.replace(/GG/,'A5'));document.write(ArrowCode.replace(/XX/,'A6').replace(/YY/,'2').replace(/ZZ/,'rArrow'));eval(leftCode.replace(/GG/, 'A6') + (minXpos + 162));eval(topCode.replace(/GG/, 'A6') + (maxYpos + 31));eval(hideme.replace(/GG/,'A6'));document.write(ArrowCode.replace(/XX/,'A7').replace(/YY/,'1').replace(/ZZ/,'lArrow'));eval(leftCode.replace(/GG/, 'A7') + (minXpos + 142));eval(topCode.replace(/GG/, 'A7') + (maxYpos + 31));eval(hideme.replace(/GG/,'A7')); minXpos = minXpos + 32;for (i==1;i<6;i++){who  = "p" + i;document.write(ACode.replace(/GG/,who).replace(/WW/,20).replace(/"XXX"/,SBlack.src));}i = 101;for (i==101;i<201;i++){who  = "p" + i;document.write(ACode.replace(/GG/,who).replace(/WW/,1).replace(/"XXX"/,SBlack.src));}i = 11;for (i==11;i<19;i++){who  = "p" + 20*i;document.write(ACode.replace(/GG/,who).replace(/WW/,20).replace(/"XXX"/,SBlack.src));}i = 1;for (i==1;i<50;i++){who  = "q" + i;document.write(ECode.replace(/GG/,who).replace(/"XXX"/,SRed.src));who  = "r" + i;document.write(ECode.replace(/GG/,who).replace(/"XXX"/,SRed.src));}if (document.layers) {document.write('<ilayer id="message" height=25 width=200><layer id="message2" height=25 width=200></layer></ilayer>');temp = 'document.message.document.message2.document.write(beforeMsg + textStr + afterMsg);'+ 'document.message.document.message2.document.close()';eval(hideme.replace(/GG/,'message'));document.write('<ilayer id="m2" height=25 width=200><layer id="m2a" height=25 width=200></layer></ilayer>');tempinit = 'document.m2.document.m2a.document.write(beforeMsg + textinit + afterMsg);'+ 'document.m2.document.m2a.document.close()';eval(hideme.replace(/GG/,'m2'));document.write('<ilayer id="m3" height=25 width=200><layer id="m3a" height=25 width=200></layer></ilayer>');tempfinal = 'document.m3.document.m3a.document.write(beforeMsg + textfinal + afterMsg);'+ 'document.m3.document.m3a.document.close()';eval(hideme.replace(/GG/,'m3'));textTop = textTop - 25; }else if ((document.getElementById)&&(!document.all)) {document.write(beforeMsg + '<div id="message" style="position:absolute;">----</div>' + afterMsg);temp = 'document.getElementById("message").firstChild.nodeValue = textStr;';textLeft = textLeft + 5;textTop = textTop -20;eval(hideme.replace(/GG/,'message'));document.write(beforeMsg + '<div id="m2" style="position:absolute;">----</div>' + afterMsg);tempinit = 'document.getElementById("m2").firstChild.nodeValue = textinit;';initLeft = initLeft + 5;initTop = initTop -20;eval(hideme.replace(/GG/,'m2'));document.write(beforeMsg + '<div id="m3" style="position:absolute;">----</div>' + afterMsg);tempfinal = 'document.getElementById("m3").firstChild.nodeValue = textfinal;';finalLeft = finalLeft + 5;finalTop = finalTop +10;eval(hideme.replace(/GG/,'m3'));}else if (document.all) {document.write(beforeMsg + '<div id="message" style="position:relative;">IE division</div>' + afterMsg);temp = 'message.innerHTML = textStr;';textLeft = textLeft + 5;textTop = textTop -20;eval(hideme.replace(/GG/,'message'));document.write(beforeMsg + '<div id="m2" style="position:relative;">IE division</div>' + afterMsg);tempinit = 'm2.innerHTML = textinit;';initLeft = initLeft + 5;initTop = initTop - 20;eval(hideme.replace(/GG/,'m2'));document.write(beforeMsg + '<div id="m3" style="position:relative;">IE division</div>' + afterMsg);tempfinal = 'm3.innerHTML = textfinal;';finalLeft = finalLeft + 5;finalTop = finalTop - 20;eval(hideme.replace(/GG/,'m3'));if (navigator.platform.indexOf("Win") > -1) initTop = initTop - 15;}eval(leftCode.replace(/GG/, "message") + textLeft);eval(topCode.replace(/GG/, "message") + textTop);pickit();}function formatit(who,howmany){var dummy = "";dummy = Math.round(who*Math.pow(10,howmany));dummy = dummy.toString();if (dummy.length < howmany + 1){	while(dummy.length < howmany) dummy = "0" + dummy;	who = "0." + dummy;		}else{	if (howmany == 1) {			who = dummy.substring(0,2) + "." + dummy.charAt(2);				}else{			who = dummy.charAt(0) + "." + dummy.substring(1);	}}return who;}function openit(aa){var newURL = "disc.html";if (aa== "inst") newURL = "inst.html";window.open(newURL);}function hideAll(aa){var i = 1;var who = "";if (aa > 0){for (i==1;i < 5;i++){	who = "A" + i;eval(hideme.replace(/GG/,who));}i = 1;for (i==1;i<35;i++){	who = "q" + i;eval(hideme.replace(/GG/,who));	who = "r" + i;eval(hideme.replace(/GG/,who));}i=1;for (i==1;i<360;i++){	who = "p" + i;eval(hideme.replace(/GG/,who));}}} function pickit(){textStr = Sample[choice].sName;if (!document.getElementById){	textStr +=  "    C";if (Sample[choice].sC > 1)textStr += "<sub>" + Sample[choice].sC + "</sub>";if (Sample[choice].sH > 0) {			textStr += "H";			if (Sample[choice].sH > 1) textStr +=  "<sub>" + Sample[choice].sH + "</sub>";   }if (Sample[choice].sO > 0) {			textStr += "O";			if (Sample[choice].sO > 1) textStr +=  "<sub>" + Sample[choice].sO + "</sub>";   }}}function changit(aa){var newVal = "";var oldVal = "";var isay = "";var dummy = "";var chk = 0;if (fired ==0){if (aa == "W"){	oldVal = parent.frames[0].sampleWgt;	isay = "The sample weight is " + oldVal + " g.\n Enter a new value:";	if (lang =="FR") isay = "La masse est " + oldVal + " g.\n Entrez une nouvelle valeur:";	newVal = prompt(isay,oldVal);isay = "";if (isNaN(newVal)){	newVal = oldVal;	isay = "Sorry, your entry is not a number";	if (lang == "FR") isay = "valeur comprise entre 0.1 et 2 g seulement";	chk += 1;}if  (newVal == null){ newVal = oldVal; 	chk +=1;}if ((newVal < 0.1) || (newVal > 2)){	newVal = oldVal;	isay = "The value must be between 0.1 and 2 grams";	if (lang == "FR") isay = "valeur comprise entre 0.1 et 2 g seulement";	chk +=1;}	if (isay != "")alert(isay);if ((chk == 0)&&(newVal != oldVal)){								newVal= 1*newVal + (200 - 400*Math.random())/10000; 		dummy = Math.round(10000*newVal);		dummy = dummy.toString();		if (dummy.length < 5){								while (dummy.length < 4) dummy = "0" + dummy;				       newVal = "0." + dummy;	          }else{				       newVal = dummy.charAt(0) + "." + dummy.substring(1);					}			sampleWgt = newVal;	  	parent.frames[0].sampleWgt = newVal; 	    document.CForm.weight.value = newVal;}}else{	oldVal = parent.frames[0].tWater;	isay = "The water temperature is " + oldVal + " C.\n Enter a new value:";if (lang == "FR") isay = "La temp. de l'eau est " + oldVal + " C.\n Entrez une nouvelle valeur:";	newVal = prompt(isay,oldVal);	isay = "";if (isNaN(newVal)){	newVal = oldVal;	isay = "Sorry, your entry is not a number";	if (lang == "FR") isay = "valeur comprise entre 24 et 30 C seulement";}if  (newVal == null) newVal = oldVal;if ((newVal < 24) || (newVal > 30)){	newVal = oldVal;	isay = "The value must be between 24 and 30 degrees C.";	if (lang == "FR") isay = "valeur comprise entre 24 et 30 C seulement";}	if (isay != "") {              alert(isay);           }else if (newVal != oldVal){							tWater = newVal;	            parent.frames[0].tWater = newVal;       dummy = Math.round(10*newVal);dummy = dummy.toString();newVal = dummy.substring(0,2) + "." + dummy.charAt(2);document.CForm.water.value = newVal;}}}}function putVals(){var dummy = "";document.CForm.weight.value = parent.frames[0].sampleWgt//formatit(sampleWgt,4);tWater = parent.frames[0].tWater;document.CForm.water.value = formatit(tWater,1);//tWater;document.CForm.room.value = formatit(tRoom,1);//tRoom;document.CForm.wirebefore.value = formatit(wireWgt,4);document.CForm.sampleweight.src = Lwgt.src;document.CForm.change1.src = Lchange.src;document.CForm.change2.src = Lchange.src;document.CForm.watertemp.src = Lwtemp.src;document.CForm.roomtemp.src = Lrtemp.src;document.CForm.wbefore.src = Lwbefore.src;document.CForm.wafter.src = Lwafter.src;document.CForm.view.src = Lview.src;document.CForm.burn.src = Lburn.src;document.CForm.ext.src = Lext.src;//document.CForm.graph.src = Lgraph.src;//document.CForm.print.src = Lprint.src;eval(showme.replace(/GG/,'message'));if (fired > 0){document.CForm.wireafter.value = formatit(wireAfter,4);}}function burnit(){var dt = 0.05;var i = 1;var hh = 0;var dummy = "";var counter = 1;var spacer = 5;var isay = "";if (fired ==0){putVals();document.CForm.burn.src = Lwait.src;fired += 1;hh = Math.round(wireAfter*10000);wireLoss += (20 - 40*Math.random())/10000;dummy = hh.toString();while (dummy.length < 4 ) dummy = "0" + dummy;dummy = "0." + dummy;document.CForm.wireafter.value = formatit(wireAfter,4);//dummy;times[0] = 0;tWater = 1*parent.frames[0].tWater;sampleWgt = 1*parent.frames[0].sampleWgt + (6 - 12*Math.random())/10000;temps[0] = tWater;tRoom = 1*tRoom;		for (counter ==1;counter< 6;counter++){					tWater += 20*dt*kWater*(tRoom - tWater)/cTotal;					tWater += .001 - .002*Math.random();					hh = Math.round((tWater - 24)*100/3) - 15; 					which = "p" + counter;					eval(leftCode.replace(/GG/, which) + (minXpos + 20*(counter - 1)));					eval(topCode.replace(/GG/, which) + (maxYpos - hh));					eval(showme.replace(/GG/,which));													times[counter] = counter								temps[counter] =  tWater +0.002 - 0.004*Math.random();								 				}counter = 5i = 101;	for (i==101;i <105;i++){					tWater += dt*kWater*(tRoom - tWater)/cTotal;					tWater += .001 - .002*Math.random();					hh = Math.round((tWater - 24)*100/3) - 15; 					which = "p" + i;					eval(leftCode.replace(/GG/, which) + (minXpos + i));					eval(topCode.replace(/GG/, which) + (maxYpos - hh));					eval(showme.replace(/GG/,which));											 				}tBomb = tWater;tGas = tWater + (sampleWgt*Sample[choice].sE + 5858*wireLoss)/cContents;i = 105;		for (i==105;i < 201;i++){						if (i== 160) spacer = 20;					tGas += kGas*dt*(tBomb - tGas)/cContents;					tBomb += (kGas*(tGas - tBomb) + kBomb*(tWater - tBomb))*dt/cBomb;					tWater += (kBomb*(tBomb - tWater) + kWater*(tRoom - tWater))*dt/cRig;					hh = Math.round((tWater - 24)*100/3) - 15; 					which = "p" + i;					eval(leftCode.replace(/GG/, which) + (minXpos + i));					eval(topCode.replace(/GG/, which) + (maxYpos - hh));					eval(showme.replace(/GG/,which));																if (i % spacer == 0){								counter += 1;								times[counter] = i/20;								temps[counter] = tWater +0.002 - 0.004*Math.random();										} 				}i = 11;	for (i == 11; i < 19; i ++){							tGas += 20*kGas*dt*(tBomb - tGas)/cContents;					tBomb += 20*(kGas*(tGas - tBomb) + kBomb*(tWater - tBomb))*dt/cBomb;					tWater += 20*(kBomb*(tBomb - tWater) + kWater*(tRoom - tWater))*dt/cRig;					hh = Math.round((tWater - 24)*100/3) - 15; 					which = "p" + 20*i;					eval(leftCode.replace(/GG/, which) + (minXpos + 20*(i - 1)));					eval(topCode.replace(/GG/, which) + (maxYpos - hh));					eval(showme.replace(/GG/,which));counter +=1;								times[counter] = i;								temps[counter] = tWater +0.002 - 0.004*Math.random();	}		i = 1;isay = "  time       temp\n==============\n"	for (i==1;i<= counter;i++){			dummy = Math.round(100*times[i]);			dummy = dummy.toString();			if (times[i] < 10) dummy = " " + dummy;			isay = isay + " " + dummy.substring(0,2) + "." + dummy.substring(2) + "      ";			dummy = Math.round(1000*temps[i]);			dummy = dummy.toString();			isay = isay + dummy.substring(0,2) + "." + dummy.substring(2) + "\n";			}//document.CForm.output.value = isay;dataList = isay; calculate();document.CForm.burn.src = Lburn.src;}}function calculate(){var x = 0;var y = 0;var sx=0;var sy = 0;var sxx = 0;var syy = 0;var sxy = 0;var NN = 0;var denom = 0;var i = 0;for (i==1;i< 6;i++){	x = 1*times[i];	y = 1*temps[i];	sx += x;	sy += y;	sxx += x*x;	syy += y*y;	sxy += x*y;	NN += 1;	}	denom = NN*sxx - sx*sx;	aslope = (NN*sxy - sx*sy)/denom;	aint = (sy*sxx - sx*sxy)/denom;	adev = Math.sqrt(Math.abs((syy - aslope*sxy - aint*sy)/(NN - 2))); 	i = 22;sx = 0;sy = 0;sxx = 0;syy = 0;sxy = 0;NN = 0;for (i==22;i< 28;i++){	x = 1*times[i];	y = 1*temps[i];	sx += x;	sy += y;	sxx += x*x;	syy += y*y;	sxy += x*y;	NN += 1;	}	denom = NN*sxx - sx*sx;	bslope = (NN*sxy - sx*sy)/denom;	bint = (sy*sxx - sx*sxy)/denom;	bdev = Math.sqrt(Math.abs((syy - bslope*sxy - bint*sy)/(NN - 2)));}function movit(aa){var WA = Xpos;if (aa==1){ 	WA -=2;}else{	WA +=2;}if ((WA > 108) && (WA < 148)) Xpos = WA;if (navigator.appName == 'Netscape'){document.A5.left = minXpos + Xpos;}else{document.all.A5.style.left = minXpos + Xpos;}extrapolate();}function extrapolate(){var i = 1;var hh = 0;var tt = 0;var which = "q"var isay = "";document.CForm.ext.src = Lwait.src;putVals();eval(showme.replace(/GG/,'A5'));eval(showme.replace(/GG/,'A6'));eval(showme.replace(/GG/,'A7'));for (i==1;i < 20; i++){	tt = aint + aslope*(.125 + i/2);	hh = Math.round((tt - 24)*100/3 - 15)	which = "q" + i;	eval(leftCode.replace(/GG/,which) + (minXpos + 10*i));	eval(topCode.replace(/GG/,which) + (maxYpos - hh));}i = 10;for (i==10;i < 36; i++){	tt = bint + bslope*(.125 + i/2);	hh = Math.round((tt - 24)*100/3 - 15)	which = "r" + i;	eval(leftCode.replace(/GG/,which) + (minXpos + 10*i));	eval(topCode.replace(/GG/,which) + (maxYpos - hh));}tt = Math.round(1000*(aint + aslope*Xpos/20));isay = tt.toString();textinit = "t(init)  = " + isay.substring(0,2) + "." + isay.substring(2);tt = Math.round(1000*(bint + bslope*Xpos/20));isay = tt.toString();textfinal = "t(final) = " + isay.substring(0,2) + "." + isay.substring(2);which = "m2";eval(leftCode.replace(/GG/,which) + initLeft);eval(topCode.replace(/GG/,which) + initTop);eval(tempinit);eval(showme.replace(/GG/,'m2'));which = "m3";eval(leftCode.replace(/GG/,which) + finalLeft);eval(topCode.replace(/GG/,which) + finalTop);eval(tempfinal);eval(showme.replace(/GG/,'m3'));document.CForm.ext.src = Lext.src;			}function printit(){var isay = "";var calname = "The Oxygen Bomb Calorimeter";var env = navigator.appName;var dummy = "";var titl ="<TITLE>Bomb Calorimeter</TITLE>";var LSam = "Sample";var LMol = "Mol. Wgt. = ";var w = "";putVals();yourName = parent.frames[0].yourName;  dummy = new Date();if (lang == "EN"){isay = 1 + dummy.getMonth() + "/" + dummy.getDate() + "/";dummy = dummy.getFullYear();dummy = dummy.toString();isay = isay + dummy.substring(2) + "<BR>";if (yourName == "?"){yourName = prompt("Please enter your name:","Antoine Lavoisier");if (yourName != null){     parent.frames[0].yourName = yourName;}else{	  yourName = "?";}}}if (lang == "FR"){titl ="<TITLE>La Bombe Calorim&eacute;trique</TITLE>" isay = "/" + (1 + dummy.getMonth()) + "/" + dummy.getDate();dummy = dummy.getFullYear();dummy = dummy.toString();isay = dummy.substring(2) + isay;if (yourName == "?"){yourName = prompt("Please enter your name:","Antoine Lavoisier");if (yourName != null) {		parent.frames[0].yourName = yourName;}else{		yourNAme = "?";}}calname = "La bombe calorim&eacute;trique &agrave; oxyg&egrave;ne";LSam = "&Eacute;chantillon";LMol = "M.Mol = ";}if (lang == "CH"){	isay = "/" + (1 + dummy.getMonth()) + "/" + dummy.getDate();dummy = dummy.getFullYear();dummy = dummy.toString();isay = dummy.substring(2) + isay;calname = "<IMG SRC = CHtitle.gif border = 0 height = 23 width = 213>";	LSam = "<IMG SRC = CHsamp.gif border = 0 height = 30 width = 100>";var LMol = "Mol. Wgt. = ";yourName = " ";}if (lang == "SP"){titl ="<TITLE>Bomba calorim&eacute;trica de oxigeno</TITLE>" isay = "/" + (1 + dummy.getMonth()) + "/" + dummy.getDate();dummy = dummy.getFullYear();dummy = dummy.toString();isay = dummy.substring(2) + isay;if (yourName == "?"){yourName = prompt("Por favor, introduzca su nombre:","Antoine Lavoisier");if (yourName != null) {		parent.frames[0].yourName = yourName;}else{		yourName = "?";}}calname = "Bomba calorim&eacute;trica de oxigeno";LSam = "Sustancia";LMol = "M.Mol = ";}if (yourName != "?"){dummy = "<b>" + yourName + "&nbsp;&nbsp;&nbsp;&nbsp;" + isay + "</b>"; sn += 1;w = window.open("",sn,"resizable,menubar,scrollbars");if (document.layers) w = window.open("",sn,"scrollbars");d = w.document;d.write(titl);isay = '<body BGcolor = "#FFFFFF"><center><font size = +1><b>' + calname + '</b></font><BR></center><form NAME = "Form1">';d.write(isay); isay = "<table><tr><td><textarea NAME = 'output' COLS = '20' ROWS = '30' value = ''>" + dataList + "</textArea></td><td>";isay = isay + dummy + '<BR><BR><b>' + LSam + ':  ' + Sample[choice].sName + ' &nbsp;&nbsp;&nbsp;C<sub>' + Sample[choice].sC + '</sub>';if (Sample[choice].sH > 0){	isay = isay + 'H';	if (Sample[choice].sH > 1) isay = isay + '<sub>' + Sample[choice].sH + '</sub>';}if (Sample[choice].sO > 0){	isay = isay + 'O';	if (Sample[choice].sO > 1) isay = isay + '<sub>' + Sample[choice].sO + '</sub><BR><BR>';}	isay = isay + LMol + Sample[choice].sM + ' g/mol</b><BR><BR>';	dummy = Math.round(10000*parent.frames[0].sampleWgt);dummy = dummy.toString();while (dummy.length < 5) dummy = "0" + dummy;if (lang == "CH") isay = isay + "<IMG SRC = " + Lwgt.src + " height = 30 width = 120 border = 0> = " + dummy.charAt(0) + "." + dummy.substring(1) + "  g<BR><BR>"; if (lang == "EN") isay = isay + "Sample Weight = " + dummy.charAt(0) + "." + dummy.substring(1) + "  grams<BR><BR>";if (lang == "FR") isay = isay + "Masse de l'&eacute;chantillon = " + dummy.charAt(0) + "." + dummy.substring(1) + "  gramme<BR><BR>";if (lang == "SP") isay = isay + "Masa de la sustancia = " + dummy.charAt(0) + "." + dummy.substring(1) + "  gramos<BR><BR>";d.write(isay);dummy = Math.round(wireWgt * 10000);dummy = dummy.toString();while (dummy.length < 4) dummy = "0" + dummy; if (lang == "EN") isay = 'wire before = 0.' + dummy + ' grams<BR>' if (lang == "FR") isay = 'fil avant = 0.' + dummy + ' gramme<BR>'if (lang == "CH") isay ="<IMG SRC = " + Lwbefore.src + " height = 30 width = 120 border = 0> = " + dummy + " g<BR>"; if (lang == "SP") isay ='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alambre antes  = 0.' + dummy + ' gramos<BR>';   dummy = Math.round((wireAfter)*10000);dummy = dummy.toString();while (dummy.length < 4) dummy = "0" + dummy; if (lang == "EN"){		 isay = isay + '&nbsp;&nbsp;&nbsp;wire after  = 0.' + dummy + ' grams<BR><BR>'; 		isay = isay + '&nbsp;&nbsp;&nbsp;&nbsp;wire lost = _________ grams<BR><BR>';				} if (lang == "FR"){		 isay = isay + 'fil apr&egrave;s  = 0.' + dummy + ' gramme<BR><BR>'; 		isay = isay + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perte = _________ gramme<BR><BR>';				}if (lang == "CH"){	isay = isay +"<IMG SRC = " + Lwafter.src + " height = 30 width = 120 border = 0> = " + dummy + " g<BR>";	isay = isay +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = _________ g<BR><BR>';} if (lang == "SP"){		 isay = isay + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alambre despu&eacute;s = 0.' + dummy + ' gramos<BR><BR>'; 		isay = isay + 'variaci&oacute;n de la masa = _________ gramos<BR><BR>';				}      d.write(isay);if (textfinal != " "){	isay = '&nbsp;' + textfinal + ' <sup>o</sup>C<BR>';    isay = isay + '&nbsp;&nbsp;&nbsp;' + textinit + ' <sup>o</sup>C<BR><BR>';	isay = isay +  'delta-T = _____________ K<BR><BR>'}else{	isay = '&nbsp;<BR><BR><BR><BR><BR>'}isay = isay +  '<BR><BR><BR><A Href = "" onClick = "self.close();"><IMG SRC = ' + Lgraph.src + ' height = 30 width = 120></a><BR>';isay = isay + "</td></tr></table></FORM></BODY>";d.write(isay);d.close();}}function loadImages() {if (document.getElementById) {  // DOM3 = IE5, NS6document.getElementById('hidepage').style.visibility = 'hidden';}else {if (document.layers) {  // Netscape 4document.hidepage.visibility = 'hidden';}else {  // IE 4document.all.hidepage.style.visibility = 'hidden';      }   }setTimeout("eval(temp)",1000);setTimeout("putVals()",2000);}</script></head><body bgcolor="#FFFFCC"  OnLoad="loadImages();"><div id="hidepage" style="position: absolute; left:5px; top:5px; background-color: #FFFFCC; layer-background-color: #FFFFCC; height: 100%; width: 100%;"> <table width=100%><tr><td><center>Page loading ... Please wait.<BR>Thanks to Gilbert Davis for the HidePage script<BR>and to:  The JavaScript Source!! http://javascript.internet.com </center></td></tr></table></div><a NAME="top"></a><BR><form Name = "CForm"><table><tr><td><img SRC="spc.gif" BORDER=0 height=30 width=470></td><td><center><input type ="text" name = "weight" size = 15 onkeypress = "return false;" onMouseDown = "return false;"><BR><img SRC = "spc.gif" name = "sampleweight" border = 0 height = 30 width = 120></center></td><td valign = "top"><a href = "" onClick = "changit('W');return false;"><IMG SRC = "spc.gif" name = "change1" border = 1 width = 120 height = 30></a></td></tr><tr><td><img SRC="spc.gif" BORDER=0 height=30 width=470></td><td><center><input type = "text" name = "water" size = 15 onkeypress = "return false;" onMouseDown = "return false;"><BR><img SRC = "spc.gif" name = "watertemp" border = 0 height = 30 width = 120></center></td><td valign = "top"><a href = "" onClick = "changit('T');return false;"><IMG SRC = "spc.gif" name = "change2" border = 1 width = 120 height = 30></a><BR></td></tr><tr><td><img SRC="spc.gif" BORDER=0 height=30 width=470></td><td><center><input type = "text" name = "room" size = 15 onkeypress ="return false;" onMouseDown = "return false;"><BR><img SRC = "spc.gif" name = "roomtemp" border = 0 height = 30 width = 120></center></td></tr><tr><td><img SRC="spc.gif" BORDER=0 height=30 width=470></td><td><center><input type = "text" name = "wirebefore" size = 15 onkeypress = "return false;" onMouseDown = "return false;"><BR><img SRC = "spc.gif" name = "wbefore" border = 0 height = 30 width = 120></center></td></tr><tr><td><img SRC="spc.gif" BORDER=0 height=30 width=470></td><td><center><input type = "text" name = "wireafter" size = 15 onkeypress = "return false;" onMouseDown = "return false;"><BR><img SRC = "spc.gif" name = "wafter" border = 0 height = 30 width = 120></center></td><td valign = "top"><a href="" onClick = "printit();return false;"><img SRC = "spc.gif" name = "view" border = 1 height = 30 width = 120></center></a></td></tr><tr><td><img SRC="spc.gif" BORDER=0 height=30 width=470></td><td><center><a href = "" onClick = "burnit();return false"><IMG SRC = "spc.gif" name = "burn" border = 1 width = 120 height = 30></center></td><td valign = "top"><a href="" onClick = "extrapolate();return false;"><img SRC = "spc.gif" name = "ext" border = 1 height = 30 width = 120></center></a></td></tr></table></form></body></html>
+<!DOCTYPE html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta
+      name="GENERATOR"
+      content="Mozilla/4.74 (Macintosh; U; PPC) [Netscape]"
+    />
+    <style>
+      .point {
+        position: absolute;
+      }
+    </style>
+    <script language="JavaScript">
+      var lang = "EN";
+      var nam = unescape(document.URL);
+      var idx = nam.indexOf("?");
+      if (idx > -1) lang = nam.substring(idx + 1);
+
+      var fired = 0;
+      var Ltime = new Image();
+      Ltime.src = lang + "time.gif";
+      var Lbal = new Image();
+      Lbal.src = lang + "bal.gif";
+      var Lburn = new Image();
+      Lburn.src = lang + "burn.gif";
+      var Lchange = new Image();
+      Lchange.src = lang + "change.gif";
+      var Lext = new Image();
+      Lext.src = lang + "ext.gif";
+      var Lrtemp = new Image();
+      Lrtemp.src = lang + "rtemp.gif";
+      var Lview = new Image();
+      Lview.src = lang + "view.gif";
+      var Lwafter = new Image();
+      Lwafter.src = lang + "wafter.gif";
+      var Lwbefore = new Image();
+      Lwbefore.src = lang + "wbefore.gif";
+      var Lwgt = new Image();
+      Lwgt.src = lang + "wgt.gif";
+      var Lwtemp = new Image();
+      Lwtemp.src = lang + "wtemp.gif";
+      var Lwait = new Image();
+      Lwait.src = lang + "wait.gif";
+      var Lgraph = new Image();
+      Lgraph.src = lang + "graph.gif";
+      var Lprint = new Image();
+      Lprint.src = lang + "print.gif";
+      var SBlack = new Image();
+      SBlack.src = "black.gif";
+      var SBlue = new Image();
+      SBlue.src = "blue.gif";
+      var SRed = new Image();
+      SRed.src = "red.gif";
+      var STemp = new Image();
+      STemp.src = "temp.gif";
+
+      var ACode =
+        '<div class="point" id="GG"><img src= "XXX" border = "0" width="WW" height="1"></div>\n';
+      var ECode =
+        '<div class="point" id="GG"><img src= "XXX" border = "0" width="5" height="1"></div>\n';
+      var DCode =
+        '<div class="point" id="GG"><img src= "XXX" border = "0" width="1" height="HH"></div>\n';
+      var BCode =
+        '<div class="point" id="A3"><img src= "XXX" border = "0" width="22" height="13"></div>\n';
+      var CCode =
+        '<div class="point" id="A4"><img src= "XXX" name = "time" border = "0" width="120" height="30"></div>\n';
+
+      var HCode =
+        '<div class="point" id="A1"><img src= "hgrid.gif" border = "0" width="399" height="28"></div>\n';
+      var VCode =
+        '<div class="point" id="A2"><img src= "vgrid.gif" border = "0" width="44" height="209"></div>\n';
+
+      var ArrowCode =
+        '<div class="point" id="XX"><A Href = "" onClick = "movit(YY);return false;"><img src= "ZZ.gif" border = "0" width="16" height="13"></a></div>\n';
+      var spc = new Image();
+      spc.src = "spc.gif";
+
+      var yourName = parent.frames[0].yourName;
+      var Sample = new Array(20);
+      var times = new Array();
+      var temps = new Array();
+      var textCode = "";
+      var leftCode = "";
+      var topCode = "";
+      var hideme = "document.GG.visibility = 'hide'";
+      var showme = "document.GG.visibility = 'show'";
+      var KCode = "";
+      var sKey = "";
+      var lKey = "";
+      var isay = "";
+      var i = 1;
+      var minXpos = 70;
+      var maxYpos = 350; //250
+      if (document.getElementById) maxYpos = 250;
+      var who = "";
+      var choice = parent.frames[0].choice;
+      var sn = 0;
+
+      var beforeMsg = "<font color=blue><b>";
+      var afterMsg = "</b></font>";
+      var textStr = "";
+      var textinit = " ";
+      var textfinal = " ";
+      var temp = " ";
+      var tempinit = " ";
+      var tempfinal = " ";
+      var textLeft = minXpos + 150;
+      var textTop = maxYpos - 200;
+      var initLeft = minXpos + 250;
+      var initTop = maxYpos - 30;
+      var finalLeft = minXpos + 30;
+      var finalTop = maxYpos - 220;
+
+      var cBomb = parent.frames[0].cBomb;
+      var cContents = 50;
+      var cParts = 150;
+      var cWater = 8368 + 8 * Math.random();
+      var cRig = cWater + cParts;
+      var cTotal = cBomb + cContents + cWater + cParts;
+      var sampleWgt = Math.round(9000 + 2000 * Math.random()) / 10000;
+      var tWater = 24 + 0.1 * Math.round(0.5 + 4 * Math.random());
+      var tRoom = parent.frames[0].tRoom;
+      var wireWgt = (200 + 100 * Math.random()) / 10000;
+      var wireLoss = (19.99 + 80 * Math.random()) / 10000;
+      var wireAfter = wireWgt - wireLoss;
+      var kBomb = 1500;
+      var kGas = 100;
+      var kWater = 12;
+
+      var aslope = 0;
+      var bslope = 0;
+      var aint = 0;
+      var bint = 0;
+      var adev = 0;
+      var bdev = 0;
+      var Tinit = 0;
+      var Tfinal = 0;
+      var Xpos = 128;
+      var dataList = "";
+      parent.frames[0].tWater = tWater;
+      aint = Math.round(10000 * sampleWgt);
+      aint = aint.toString();
+      if (aint.length < 5) {
+        while (aint.length < 4) aint = "0" + aint;
+        bint = "0." + aint;
+      } else {
+        bint = aint.charAt(0) + "." + aint.substring(1);
+      }
+      sampleWgt = bint;
+      aint = 0;
+      bint = 0;
+
+      parent.frames[0].sampleWgt = sampleWgt;
+
+      if (document.layers) {
+        leftCode = "document.GG.left = ";
+        topCode = "document.GG.top = ";
+        refY = 62;
+      }
+      if (document.getElementById && !document.all) {
+        topCode = 'document.getElementById("GG").style.top = ';
+        leftCode = 'document.getElementById("GG").style.left = ';
+        showme = 'document.getElementById("GG").style.visibility = "visible"';
+        hideme = 'document.getElementById("GG").style.visibility = "hidden"';
+        document.write("<font color = '#FFFFCC'>A</font>");
+      }
+      if (document.all) {
+        leftCode = "document.all.GG.style.left = ";
+        topCode = "document.all.GG.style.top = ";
+        hideme = "document.all.GG.style.visibility = 'hidden'";
+        showme = "document.all.GG.style.visibility = 'visible'";
+      }
+
+      Sample[0] = {
+        sName: "iron wire",
+        sC: "",
+        sH: "",
+        sO: "",
+        sG: "",
+        sM: "",
+        sE: "5858",
+      };
+      Sample[1] = {
+        sName: "benzoic acid",
+        sC: "7",
+        sH: "6",
+        sO: "2",
+        sG: "0.5",
+        sM: "122.113",
+        sE: "26415",
+      };
+      Sample[2] = {
+        sName: "stearic acid",
+        sC: "18",
+        sH: "36",
+        sO: "2",
+        sG: "8",
+        sM: "284.473",
+        sE: "39585",
+      };
+      Sample[3] = {
+        sName: "palmitic acid",
+        sC: "16",
+        sH: "32",
+        sO: "2",
+        sG: "7",
+        sM: "256.419",
+        sE: "38845",
+      };
+      Sample[4] = {
+        sName: "myristic acid",
+        sC: "14",
+        sH: "28",
+        sO: "2",
+        sG: "6",
+        sM: "228.365",
+        sE: "37932",
+      };
+      Sample[5] = {
+        sName: "lauric acid",
+        sC: "12",
+        sH: "24",
+        sO: "2",
+        sG: "5",
+        sM: "200.311",
+        sE: "36768",
+      };
+      Sample[6] = {
+        sName: "capric acid",
+        sC: "10",
+        sH: "20",
+        sO: "2",
+        sG: "4",
+        sM: "172.257",
+        sE: "35236",
+      };
+      Sample[7] = {
+        sName: "fumaric acid",
+        sC: "4",
+        sH: "4",
+        sO: "4",
+        sG: "-1",
+        sM: "116.052",
+        sE: "11522",
+      };
+      Sample[8] = {
+        sName: "maleic acid",
+        sC: "4",
+        sH: "4",
+        sO: "4",
+        sG: "-1",
+        sM: "116.052",
+        sE: "11699",
+      };
+      Sample[9] = {
+        sName: "maleic anhydride",
+        sC: "4",
+        sH: "2",
+        sO: "3",
+        sG: "-1",
+        sM: "98.042",
+        sE: "14198",
+      };
+      Sample[10] = {
+        sName: "naphthalene",
+        sC: "10",
+        sH: "8",
+        sO: "0",
+        sG: "2",
+        sM: "128.174",
+        sE: "40171",
+      };
+      Sample[11] = {
+        sName: "benzil",
+        sC: "14",
+        sH: "10",
+        sO: "2",
+        sG: "1.5",
+        sM: "210.222",
+        sE: "32316",
+      };
+      Sample[12] = {
+        sName: "diphenyl",
+        sC: "12",
+        sH: "10",
+        sO: "0",
+        sG: "2.5",
+        sM: "154.212",
+        sE: "40483",
+      };
+      Sample[13] = {
+        sName: "decane",
+        sC: "10",
+        sH: "22",
+        sO: "0",
+        sG: "5.5",
+        sM: "142.285",
+        sE: "47253",
+      };
+      Sample[14] = {
+        sName: "eicosane",
+        sC: "20",
+        sH: "42",
+        sO: "0",
+        sG: "11.5",
+        sM: "282.555",
+        sE: "47034",
+      };
+      Sample[15] = {
+        sName: "galactose",
+        sC: "6",
+        sH: "12",
+        sO: "6",
+        sG: "0",
+        sM: "180.126",
+        sE: "15565",
+      };
+      Sample[16] = {
+        sName: "glucose",
+        sC: "6",
+        sH: "12",
+        sO: "6",
+        sG: "0",
+        sM: "180.126",
+        sE: "15559",
+      };
+      Sample[17] = {
+        sName: "fructose",
+        sC: "6",
+        sH: "12",
+        sO: "6",
+        sG: "0",
+        sM: "180.126",
+        sE: "15609",
+      };
+      Sample[18] = {
+        sName: "sucrose",
+        sC: "12",
+        sH: "22",
+        sO: "11",
+        sG: "0",
+        sM: "342.241",
+        sE: "16482",
+      };
+      if (lang == "FR" && !document.getElementById) {
+        Sample[1].sName = "Acide benzo&iuml;que";
+        Sample[2].sName = "Acide st&eacute;arique";
+        Sample[3].sName = "Acide palmitique";
+        Sample[4].sName = "Acide myristiqueD&eacute;cane (liq)";
+        Sample[5].sName = "Acide laurique";
+        Sample[6].sName = "Acide caprique";
+        Sample[7].sName = "Acide fumarique";
+        Sample[8].sName = "Acide mal&eacute;ique";
+        Sample[9].sName = "Anhydride mal&eacute;ique";
+        Sample[10].sName = "Naphthal&egrave;ne";
+        Sample[11].sName = "Benzil";
+        Sample[12].sName = "Diph&eacute;nyle";
+        Sample[13].sName = "D&eacute;cane (liq)";
+        Sample[18].sName = "Saccharose";
+      }
+
+      loadme();
+
+      function loadme() {
+        textTop = maxYpos - 200;
+
+        document.write(HCode);
+        eval(leftCode.replace(/GG/, "A1") + (minXpos + 30));
+        eval(topCode.replace(/GG/, "A1") + maxYpos);
+
+        document.write(VCode);
+        eval(leftCode.replace(/GG/, "A2") + minXpos);
+        eval(topCode.replace(/GG/, "A2") + (maxYpos - 188));
+
+        document.write(BCode.replace(/"XXX"/, STemp.src));
+        eval(leftCode.replace(/GG/, "A3") + (minXpos - 40));
+        eval(topCode.replace(/GG/, "A3") + (maxYpos - 120));
+
+        document.write(CCode.replace(/"XXX"/, Ltime.src));
+        eval(leftCode.replace(/GG/, "A4") + (minXpos + 175));
+        eval(topCode.replace(/GG/, "A4") + (maxYpos + 27)); //22
+
+        document.write(
+          DCode.replace(/GG/, "A5")
+            .replace(/HH/, 200)
+            .replace(/"XXX"/, SBlue.src)
+        );
+        eval(leftCode.replace(/GG/, "A5") + (minXpos + 160));
+        eval(topCode.replace(/GG/, "A5") + (maxYpos - 185));
+        eval(hideme.replace(/GG/, "A5"));
+
+        document.write(
+          ArrowCode.replace(/XX/, "A6")
+            .replace(/YY/, "2")
+            .replace(/ZZ/, "rArrow")
+        );
+        eval(leftCode.replace(/GG/, "A6") + (minXpos + 162));
+        eval(topCode.replace(/GG/, "A6") + (maxYpos + 31));
+        eval(hideme.replace(/GG/, "A6"));
+
+        document.write(
+          ArrowCode.replace(/XX/, "A7")
+            .replace(/YY/, "1")
+            .replace(/ZZ/, "lArrow")
+        );
+        eval(leftCode.replace(/GG/, "A7") + (minXpos + 142));
+        eval(topCode.replace(/GG/, "A7") + (maxYpos + 31));
+        eval(hideme.replace(/GG/, "A7"));
+
+        minXpos = minXpos + 32;
+        for (i == 1; i < 6; i++) {
+          who = "p" + i;
+          document.write(
+            ACode.replace(/GG/, who)
+              .replace(/WW/, 20)
+              .replace(/"XXX"/, SBlack.src)
+          );
+        }
+        i = 101;
+        for (i == 101; i < 201; i++) {
+          who = "p" + i;
+          document.write(
+            ACode.replace(/GG/, who)
+              .replace(/WW/, 1)
+              .replace(/"XXX"/, SBlack.src)
+          );
+        }
+        i = 11;
+        for (i == 11; i < 19; i++) {
+          who = "p" + 20 * i;
+          document.write(
+            ACode.replace(/GG/, who)
+              .replace(/WW/, 20)
+              .replace(/"XXX"/, SBlack.src)
+          );
+        }
+        i = 1;
+        for (i == 1; i < 50; i++) {
+          who = "q" + i;
+          document.write(ECode.replace(/GG/, who).replace(/"XXX"/, SRed.src));
+
+          who = "r" + i;
+          document.write(ECode.replace(/GG/, who).replace(/"XXX"/, SRed.src));
+        }
+
+        if (document.layers) {
+          document.write(
+            '<ilayer id="message" height=25 width=200><layer id="message2" height=25 width=200></layer></ilayer>'
+          );
+          temp =
+            "document.message.document.message2.document.write(beforeMsg + textStr + afterMsg);" +
+            "document.message.document.message2.document.close()";
+          eval(hideme.replace(/GG/, "message"));
+
+          document.write(
+            '<ilayer id="m2" height=25 width=200><layer id="m2a" height=25 width=200></layer></ilayer>'
+          );
+          tempinit =
+            "document.m2.document.m2a.document.write(beforeMsg + textinit + afterMsg);" +
+            "document.m2.document.m2a.document.close()";
+          eval(hideme.replace(/GG/, "m2"));
+
+          document.write(
+            '<ilayer id="m3" height=25 width=200><layer id="m3a" height=25 width=200></layer></ilayer>'
+          );
+          tempfinal =
+            "document.m3.document.m3a.document.write(beforeMsg + textfinal + afterMsg);" +
+            "document.m3.document.m3a.document.close()";
+          eval(hideme.replace(/GG/, "m3"));
+
+          textTop = textTop - 25;
+        } else if (document.getElementById && !document.all) {
+          document.write(
+            beforeMsg +
+              '<div id="message" style="position:absolute;">----</div>' +
+              afterMsg
+          );
+          temp =
+            'document.getElementById("message").firstChild.nodeValue = textStr;';
+          textLeft = textLeft + 5;
+          textTop = textTop - 20;
+          eval(hideme.replace(/GG/, "message"));
+
+          document.write(
+            beforeMsg +
+              '<div id="m2" style="position:absolute;">----</div>' +
+              afterMsg
+          );
+          tempinit =
+            'document.getElementById("m2").firstChild.nodeValue = textinit;';
+          initLeft = initLeft + 5;
+          initTop = initTop - 20;
+          eval(hideme.replace(/GG/, "m2"));
+
+          document.write(
+            beforeMsg +
+              '<div id="m3" style="position:absolute;">----</div>' +
+              afterMsg
+          );
+          tempfinal =
+            'document.getElementById("m3").firstChild.nodeValue = textfinal;';
+          finalLeft = finalLeft + 5;
+          finalTop = finalTop + 10;
+          eval(hideme.replace(/GG/, "m3"));
+        } else if (document.all) {
+          document.write(
+            beforeMsg +
+              '<div id="message" style="position:relative;">IE division</div>' +
+              afterMsg
+          );
+          temp = "message.innerHTML = textStr;";
+          textLeft = textLeft + 5;
+          textTop = textTop - 20;
+          eval(hideme.replace(/GG/, "message"));
+
+          document.write(
+            beforeMsg +
+              '<div id="m2" style="position:relative;">IE division</div>' +
+              afterMsg
+          );
+          tempinit = "m2.innerHTML = textinit;";
+          initLeft = initLeft + 5;
+          initTop = initTop - 20;
+          eval(hideme.replace(/GG/, "m2"));
+
+          document.write(
+            beforeMsg +
+              '<div id="m3" style="position:relative;">IE division</div>' +
+              afterMsg
+          );
+          tempfinal = "m3.innerHTML = textfinal;";
+          finalLeft = finalLeft + 5;
+          finalTop = finalTop - 20;
+          eval(hideme.replace(/GG/, "m3"));
+
+          if (navigator.platform.indexOf("Win") > -1) initTop = initTop - 15;
+        }
+        eval(leftCode.replace(/GG/, "message") + textLeft);
+        eval(topCode.replace(/GG/, "message") + textTop);
+
+        pickit();
+      }
+
+      function formatit(who, howmany) {
+        var dummy = "";
+        dummy = Math.round(who * Math.pow(10, howmany));
+        dummy = dummy.toString();
+        if (dummy.length < howmany + 1) {
+          while (dummy.length < howmany) dummy = "0" + dummy;
+          who = "0." + dummy;
+        } else {
+          if (howmany == 1) {
+            who = dummy.substring(0, 2) + "." + dummy.charAt(2);
+          } else {
+            who = dummy.charAt(0) + "." + dummy.substring(1);
+          }
+        }
+        return who;
+      }
+
+      function openit(aa) {
+        var newURL = "disc.html";
+
+        if (aa == "inst") newURL = "inst.html";
+        window.open(newURL);
+      }
+
+      function hideAll(aa) {
+        var i = 1;
+        var who = "";
+        if (aa > 0) {
+          for (i == 1; i < 5; i++) {
+            who = "A" + i;
+            eval(hideme.replace(/GG/, who));
+          }
+          i = 1;
+          for (i == 1; i < 35; i++) {
+            who = "q" + i;
+            eval(hideme.replace(/GG/, who));
+            who = "r" + i;
+            eval(hideme.replace(/GG/, who));
+          }
+          i = 1;
+          for (i == 1; i < 360; i++) {
+            who = "p" + i;
+            eval(hideme.replace(/GG/, who));
+          }
+        }
+      }
+      function pickit() {
+        textStr = Sample[choice].sName;
+        if (!document.getElementById) {
+          textStr += "    C";
+          if (Sample[choice].sC > 1)
+            textStr += "<sub>" + Sample[choice].sC + "</sub>";
+
+          if (Sample[choice].sH > 0) {
+            textStr += "H";
+            if (Sample[choice].sH > 1)
+              textStr += "<sub>" + Sample[choice].sH + "</sub>";
+          }
+
+          if (Sample[choice].sO > 0) {
+            textStr += "O";
+            if (Sample[choice].sO > 1)
+              textStr += "<sub>" + Sample[choice].sO + "</sub>";
+          }
+        }
+      }
+
+      function changit(aa) {
+        var newVal = "";
+        var oldVal = "";
+        var isay = "";
+        var dummy = "";
+        var chk = 0;
+
+        if (fired == 0) {
+          if (aa == "W") {
+            oldVal = parent.frames[0].sampleWgt;
+            isay =
+              "The sample weight is " + oldVal + " g.\n Enter a new value:";
+            if (lang == "FR")
+              isay =
+                "La masse est " + oldVal + " g.\n Entrez une nouvelle valeur:";
+            newVal = prompt(isay, oldVal);
+
+            isay = "";
+            if (isNaN(newVal)) {
+              newVal = oldVal;
+              isay = "Sorry, your entry is not a number";
+              if (lang == "FR")
+                isay = "valeur comprise entre 0.1 et 2 g seulement";
+              chk += 1;
+            }
+            if (newVal == null) {
+              newVal = oldVal;
+              chk += 1;
+            }
+            if (newVal < 0.1 || newVal > 2) {
+              newVal = oldVal;
+              isay = "The value must be between 0.1 and 2 grams";
+              if (lang == "FR")
+                isay = "valeur comprise entre 0.1 et 2 g seulement";
+              chk += 1;
+            }
+            if (isay != "") alert(isay);
+
+            if (chk == 0 && newVal != oldVal) {
+              newVal = 1 * newVal + (200 - 400 * Math.random()) / 10000;
+              dummy = Math.round(10000 * newVal);
+              dummy = dummy.toString();
+              if (dummy.length < 5) {
+                while (dummy.length < 4) dummy = "0" + dummy;
+                newVal = "0." + dummy;
+              } else {
+                newVal = dummy.charAt(0) + "." + dummy.substring(1);
+              }
+              sampleWgt = newVal;
+              parent.frames[0].sampleWgt = newVal;
+              document.CForm.weight.value = newVal;
+            }
+          } else {
+            oldVal = parent.frames[0].tWater;
+            isay =
+              "The water temperature is " + oldVal + " C.\n Enter a new value:";
+            if (lang == "FR")
+              isay =
+                "La temp. de l'eau est " +
+                oldVal +
+                " C.\n Entrez une nouvelle valeur:";
+            newVal = prompt(isay, oldVal);
+            isay = "";
+            if (isNaN(newVal)) {
+              newVal = oldVal;
+              isay = "Sorry, your entry is not a number";
+              if (lang == "FR")
+                isay = "valeur comprise entre 24 et 30 C seulement";
+            }
+            if (newVal == null) newVal = oldVal;
+            if (newVal < 24 || newVal > 30) {
+              newVal = oldVal;
+              isay = "The value must be between 24 and 30 degrees C.";
+              if (lang == "FR")
+                isay = "valeur comprise entre 24 et 30 C seulement";
+            }
+            if (isay != "") {
+              alert(isay);
+            } else if (newVal != oldVal) {
+              tWater = newVal;
+              parent.frames[0].tWater = newVal;
+
+              dummy = Math.round(10 * newVal);
+              dummy = dummy.toString();
+              newVal = dummy.substring(0, 2) + "." + dummy.charAt(2);
+              document.CForm.water.value = newVal;
+            }
+          }
+        }
+      }
+
+      function putVals() {
+        var dummy = "";
+        document.CForm.weight.value = parent.frames[0].sampleWgt; //formatit(sampleWgt,4);
+        tWater = parent.frames[0].tWater;
+        document.CForm.water.value = formatit(tWater, 1); //tWater;
+        document.CForm.room.value = formatit(tRoom, 1); //tRoom;
+        document.CForm.wirebefore.value = formatit(wireWgt, 4);
+        
+		// Source images have since been replaced with text
+		/*
+		document.CForm.sampleweight.src = Lwgt.src;
+        document.CForm.change1.src = Lchange.src;
+        document.CForm.change2.src = Lchange.src;
+        document.CForm.watertemp.src = Lwtemp.src;
+        document.CForm.roomtemp.src = Lrtemp.src;
+        document.CForm.wbefore.src = Lwbefore.src;
+        document.CForm.wafter.src = Lwafter.src;
+        document.CForm.view.src = Lview.src;
+        document.CForm.burn.src = Lburn.src;
+        document.CForm.ext.src = Lext.src;
+		*/
+        //document.CForm.graph.src = Lgraph.src;
+        //document.CForm.print.src = Lprint.src;
+        eval(showme.replace(/GG/, "message"));
+        if (fired > 0) {
+          document.CForm.wireafter.value = formatit(wireAfter, 4);
+        }
+      }
+      function burnit() {
+        var dt = 0.05;
+        var i = 1;
+        var hh = 0;
+        var dummy = "";
+        var counter = 1;
+        var spacer = 5;
+        var isay = "";
+        if (fired == 0) {
+          putVals();
+          
+		  // While processing replace image source with waiting symbol
+		  //document.CForm.burn.src = Lwait.src;
+          
+		  fired += 1;
+          hh = Math.round(wireAfter * 10000);
+          wireLoss += (20 - 40 * Math.random()) / 10000;
+          dummy = hh.toString();
+          while (dummy.length < 4) dummy = "0" + dummy;
+          dummy = "0." + dummy;
+          document.CForm.wireafter.value = formatit(wireAfter, 4); //dummy;
+          times[0] = 0;
+          tWater = 1 * parent.frames[0].tWater;
+          sampleWgt =
+            1 * parent.frames[0].sampleWgt + (6 - 12 * Math.random()) / 10000;
+          temps[0] = tWater;
+          tRoom = 1 * tRoom;
+          for (counter == 1; counter < 6; counter++) {
+            tWater += (20 * dt * kWater * (tRoom - tWater)) / cTotal;
+            tWater += 0.001 - 0.002 * Math.random();
+            hh = Math.round(((tWater - 24) * 100) / 3) - 15;
+            which = "p" + counter;
+            eval(
+              leftCode.replace(/GG/, which) + (minXpos + 20 * (counter - 1))
+            );
+            eval(topCode.replace(/GG/, which) + (maxYpos - hh));
+            eval(showme.replace(/GG/, which));
+
+            times[counter] = counter;
+            temps[counter] = tWater + 0.002 - 0.004 * Math.random();
+          }
+          counter = 5;
+          i = 101;
+          for (i == 101; i < 105; i++) {
+            tWater += (dt * kWater * (tRoom - tWater)) / cTotal;
+            tWater += 0.001 - 0.002 * Math.random();
+            hh = Math.round(((tWater - 24) * 100) / 3) - 15;
+            which = "p" + i;
+            eval(leftCode.replace(/GG/, which) + (minXpos + i));
+            eval(topCode.replace(/GG/, which) + (maxYpos - hh));
+            eval(showme.replace(/GG/, which));
+          }
+
+          tBomb = tWater;
+          tGas =
+            tWater +
+            (sampleWgt * Sample[choice].sE + 5858 * wireLoss) / cContents;
+          i = 105;
+          for (i == 105; i < 201; i++) {
+            if (i == 160) spacer = 20;
+            tGas += (kGas * dt * (tBomb - tGas)) / cContents;
+            tBomb +=
+              ((kGas * (tGas - tBomb) + kBomb * (tWater - tBomb)) * dt) / cBomb;
+            tWater +=
+              ((kBomb * (tBomb - tWater) + kWater * (tRoom - tWater)) * dt) /
+              cRig;
+            hh = Math.round(((tWater - 24) * 100) / 3) - 15;
+            which = "p" + i;
+            eval(leftCode.replace(/GG/, which) + (minXpos + i));
+            eval(topCode.replace(/GG/, which) + (maxYpos - hh));
+            eval(showme.replace(/GG/, which));
+            if (i % spacer == 0) {
+              counter += 1;
+              times[counter] = i / 20;
+              temps[counter] = tWater + 0.002 - 0.004 * Math.random();
+            }
+          }
+          i = 11;
+          for (i == 11; i < 19; i++) {
+            tGas += (20 * kGas * dt * (tBomb - tGas)) / cContents;
+            tBomb +=
+              (20 * (kGas * (tGas - tBomb) + kBomb * (tWater - tBomb)) * dt) /
+              cBomb;
+            tWater +=
+              (20 *
+                (kBomb * (tBomb - tWater) + kWater * (tRoom - tWater)) *
+                dt) /
+              cRig;
+            hh = Math.round(((tWater - 24) * 100) / 3) - 15;
+            which = "p" + 20 * i;
+            eval(leftCode.replace(/GG/, which) + (minXpos + 20 * (i - 1)));
+            eval(topCode.replace(/GG/, which) + (maxYpos - hh));
+            eval(showme.replace(/GG/, which));
+            counter += 1;
+            times[counter] = i;
+            temps[counter] = tWater + 0.002 - 0.004 * Math.random();
+          }
+
+          i = 1;
+          isay = "  time       temp\n==============\n";
+          for (i == 1; i <= counter; i++) {
+            dummy = Math.round(100 * times[i]);
+            dummy = dummy.toString();
+            if (times[i] < 10) dummy = " " + dummy;
+            isay =
+              isay +
+              " " +
+              dummy.substring(0, 2) +
+              "." +
+              dummy.substring(2) +
+              "      ";
+            dummy = Math.round(1000 * temps[i]);
+            dummy = dummy.toString();
+            isay =
+              isay + dummy.substring(0, 2) + "." + dummy.substring(2) + "\n";
+          }
+          //document.CForm.output.value = isay;
+          dataList = isay;
+          calculate();
+
+		  // Done processing, reset burn source image
+          //document.CForm.burn.src = Lburn.src;
+        }
+      }
+
+      function calculate() {
+        var x = 0;
+        var y = 0;
+        var sx = 0;
+        var sy = 0;
+        var sxx = 0;
+        var syy = 0;
+        var sxy = 0;
+        var NN = 0;
+        var denom = 0;
+        var i = 0;
+
+        for (i == 1; i < 6; i++) {
+          x = 1 * times[i];
+          y = 1 * temps[i];
+          sx += x;
+          sy += y;
+          sxx += x * x;
+          syy += y * y;
+          sxy += x * y;
+          NN += 1;
+        }
+        denom = NN * sxx - sx * sx;
+        aslope = (NN * sxy - sx * sy) / denom;
+        aint = (sy * sxx - sx * sxy) / denom;
+        adev = Math.sqrt(Math.abs((syy - aslope * sxy - aint * sy) / (NN - 2)));
+        i = 22;
+        sx = 0;
+        sy = 0;
+        sxx = 0;
+        syy = 0;
+        sxy = 0;
+        NN = 0;
+
+        for (i == 22; i < 28; i++) {
+          x = 1 * times[i];
+          y = 1 * temps[i];
+          sx += x;
+          sy += y;
+          sxx += x * x;
+          syy += y * y;
+          sxy += x * y;
+          NN += 1;
+        }
+        denom = NN * sxx - sx * sx;
+        bslope = (NN * sxy - sx * sy) / denom;
+        bint = (sy * sxx - sx * sxy) / denom;
+        bdev = Math.sqrt(Math.abs((syy - bslope * sxy - bint * sy) / (NN - 2)));
+      }
+      function movit(aa) {
+        var WA = Xpos;
+
+        if (aa == 1) {
+          WA -= 2;
+        } else {
+          WA += 2;
+        }
+        if (WA > 108 && WA < 148) Xpos = WA;
+        if (navigator.appName == "Netscape") {
+		  console.log(minXpos + Xpos);
+		  document.getElementById("A5").style.left = minXpos + Xpos;
+          //document.A5.left = minXpos + Xpos;
+        } else {
+          document.all.A5.style.left = minXpos + Xpos;
+        }
+        extrapolate();
+      }
+      function extrapolate() {
+        var i = 1;
+        var hh = 0;
+        var tt = 0;
+        var which = "q";
+        var isay = "";
+        
+		// While processing replace extrapolate symbol with waiting symbol
+		//document.CForm.ext.src = Lwait.src;
+        putVals();
+
+        eval(showme.replace(/GG/, "A5"));
+        eval(showme.replace(/GG/, "A6"));
+        eval(showme.replace(/GG/, "A7"));
+        for (i == 1; i < 20; i++) {
+          tt = aint + aslope * (0.125 + i / 2);
+          hh = Math.round(((tt - 24) * 100) / 3 - 15);
+          which = "q" + i;
+          eval(leftCode.replace(/GG/, which) + (minXpos + 10 * i));
+          eval(topCode.replace(/GG/, which) + (maxYpos - hh));
+        }
+        i = 10;
+        for (i == 10; i < 36; i++) {
+          tt = bint + bslope * (0.125 + i / 2);
+          hh = Math.round(((tt - 24) * 100) / 3 - 15);
+          which = "r" + i;
+          eval(leftCode.replace(/GG/, which) + (minXpos + 10 * i));
+          eval(topCode.replace(/GG/, which) + (maxYpos - hh));
+        }
+        tt = Math.round(1000 * (aint + (aslope * Xpos) / 20));
+        isay = tt.toString();
+        textinit =
+          "t(init)  = " + isay.substring(0, 2) + "." + isay.substring(2);
+
+        tt = Math.round(1000 * (bint + (bslope * Xpos) / 20));
+        isay = tt.toString();
+        textfinal =
+          "t(final) = " + isay.substring(0, 2) + "." + isay.substring(2);
+
+        which = "m2";
+        eval(leftCode.replace(/GG/, which) + initLeft);
+        eval(topCode.replace(/GG/, which) + initTop);
+        eval(tempinit);
+        eval(showme.replace(/GG/, "m2"));
+
+        which = "m3";
+        eval(leftCode.replace(/GG/, which) + finalLeft);
+        eval(topCode.replace(/GG/, which) + finalTop);
+        eval(tempfinal);
+        eval(showme.replace(/GG/, "m3"));
+
+		// Done processing, set back to extrapolate image
+        //document.CForm.ext.src = Lext.src;
+      }
+
+      function printit() {
+        var isay = "";
+        var calname = "The Oxygen Bomb Calorimeter";
+        var env = navigator.appName;
+        var dummy = "";
+        var titl = "<TITLE>Bomb Calorimeter</TITLE>";
+        var LSam = "Sample";
+        var LMol = "Mol. Wgt. = ";
+        var w = "";
+        putVals();
+        yourName = parent.frames[0].yourName;
+        dummy = new Date();
+        if (lang == "EN") {
+          isay = 1 + dummy.getMonth() + "/" + dummy.getDate() + "/";
+          dummy = dummy.getFullYear();
+          dummy = dummy.toString();
+          isay = isay + dummy.substring(2) + "<BR>";
+          if (yourName == "?") {
+            yourName = prompt("Please enter your name:", "Antoine Lavoisier");
+            if (yourName != null) {
+              parent.frames[0].yourName = yourName;
+            } else {
+              yourName = "?";
+            }
+          }
+        }
+        if (lang == "FR") {
+          titl = "<TITLE>La Bombe Calorim&eacute;trique</TITLE>";
+          isay = "/" + (1 + dummy.getMonth()) + "/" + dummy.getDate();
+          dummy = dummy.getFullYear();
+          dummy = dummy.toString();
+          isay = dummy.substring(2) + isay;
+          if (yourName == "?") {
+            yourName = prompt("Please enter your name:", "Antoine Lavoisier");
+            if (yourName != null) {
+              parent.frames[0].yourName = yourName;
+            } else {
+              yourNAme = "?";
+            }
+          }
+          calname = "La bombe calorim&eacute;trique &agrave; oxyg&egrave;ne";
+          LSam = "&Eacute;chantillon";
+          LMol = "M.Mol = ";
+        }
+        if (lang == "CH") {
+          isay = "/" + (1 + dummy.getMonth()) + "/" + dummy.getDate();
+          dummy = dummy.getFullYear();
+          dummy = dummy.toString();
+          isay = dummy.substring(2) + isay;
+          calname =
+            "<IMG SRC = CHtitle.gif border = 0 height = 23 width = 213>";
+          LSam = "<IMG SRC = CHsamp.gif border = 0 height = 30 width = 100>";
+          var LMol = "Mol. Wgt. = ";
+          yourName = " ";
+        }
+
+        if (lang == "SP") {
+          titl = "<TITLE>Bomba calorim&eacute;trica de oxigeno</TITLE>";
+          isay = "/" + (1 + dummy.getMonth()) + "/" + dummy.getDate();
+          dummy = dummy.getFullYear();
+          dummy = dummy.toString();
+          isay = dummy.substring(2) + isay;
+          if (yourName == "?") {
+            yourName = prompt(
+              "Por favor, introduzca su nombre:",
+              "Antoine Lavoisier"
+            );
+            if (yourName != null) {
+              parent.frames[0].yourName = yourName;
+            } else {
+              yourName = "?";
+            }
+          }
+          calname = "Bomba calorim&eacute;trica de oxigeno";
+          LSam = "Sustancia";
+          LMol = "M.Mol = ";
+        }
+
+        if (yourName != "?") {
+          dummy = "<b>" + yourName + "&nbsp;&nbsp;&nbsp;&nbsp;" + isay + "</b>";
+          sn += 1;
+          w = window.open("", sn, "resizable,menubar,scrollbars");
+          if (document.layers) w = window.open("", sn, "scrollbars");
+          d = w.document;
+
+          d.write(titl);
+          isay =
+            '<body BGcolor = "#FFFFFF"><center><font size = +1><b>' +
+            calname +
+            '</b></font><BR></center><form NAME = "Form1">';
+          d.write(isay);
+          isay =
+            "<table><tr><td><textarea NAME = 'output' COLS = '20' ROWS = '30' value = ''>" +
+            dataList +
+            "</textArea></td><td>";
+          isay =
+            isay +
+            dummy +
+            "<BR><BR><b>" +
+            LSam +
+            ":  " +
+            Sample[choice].sName +
+            " &nbsp;&nbsp;&nbsp;C<sub>" +
+            Sample[choice].sC +
+            "</sub>";
+          if (Sample[choice].sH > 0) {
+            isay = isay + "H";
+            if (Sample[choice].sH > 1)
+              isay = isay + "<sub>" + Sample[choice].sH + "</sub>";
+          }
+          if (Sample[choice].sO > 0) {
+            isay = isay + "O";
+            if (Sample[choice].sO > 1)
+              isay = isay + "<sub>" + Sample[choice].sO + "</sub><BR><BR>";
+          }
+          isay = isay + LMol + Sample[choice].sM + " g/mol</b><BR><BR>";
+
+          dummy = Math.round(10000 * parent.frames[0].sampleWgt);
+          dummy = dummy.toString();
+          while (dummy.length < 5) dummy = "0" + dummy;
+          if (lang == "CH")
+            isay =
+              isay +
+              "<IMG SRC = " +
+              Lwgt.src +
+              " height = 30 width = 120 border = 0> = " +
+              dummy.charAt(0) +
+              "." +
+              dummy.substring(1) +
+              "  g<BR><BR>";
+          if (lang == "EN")
+            isay =
+              isay +
+              "Sample Weight = " +
+              dummy.charAt(0) +
+              "." +
+              dummy.substring(1) +
+              "  grams<BR><BR>";
+          if (lang == "FR")
+            isay =
+              isay +
+              "Masse de l'&eacute;chantillon = " +
+              dummy.charAt(0) +
+              "." +
+              dummy.substring(1) +
+              "  gramme<BR><BR>";
+
+          if (lang == "SP")
+            isay =
+              isay +
+              "Masa de la sustancia = " +
+              dummy.charAt(0) +
+              "." +
+              dummy.substring(1) +
+              "  gramos<BR><BR>";
+
+          d.write(isay);
+          dummy = Math.round(wireWgt * 10000);
+          dummy = dummy.toString();
+          while (dummy.length < 4) dummy = "0" + dummy;
+          if (lang == "EN") isay = "wire before = 0." + dummy + " grams<BR>";
+          if (lang == "FR") isay = "fil avant = 0." + dummy + " gramme<BR>";
+          if (lang == "CH")
+            isay =
+              "<IMG SRC = " +
+              Lwbefore.src +
+              " height = 30 width = 120 border = 0> = " +
+              dummy +
+              " g<BR>";
+          if (lang == "SP")
+            isay =
+              "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alambre antes  = 0." +
+              dummy +
+              " gramos<BR>";
+
+          dummy = Math.round(wireAfter * 10000);
+          dummy = dummy.toString();
+          while (dummy.length < 4) dummy = "0" + dummy;
+          if (lang == "EN") {
+            isay =
+              isay +
+              "&nbsp;&nbsp;&nbsp;wire after  = 0." +
+              dummy +
+              " grams<BR><BR>";
+            isay =
+              isay +
+              "&nbsp;&nbsp;&nbsp;&nbsp;wire lost = _________ grams<BR><BR>";
+          }
+          if (lang == "FR") {
+            isay = isay + "fil apr&egrave;s  = 0." + dummy + " gramme<BR><BR>";
+            isay =
+              isay +
+              "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perte = _________ gramme<BR><BR>";
+          }
+          if (lang == "CH") {
+            isay =
+              isay +
+              "<IMG SRC = " +
+              Lwafter.src +
+              " height = 30 width = 120 border = 0> = " +
+              dummy +
+              " g<BR>";
+            isay =
+              isay +
+              "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = _________ g<BR><BR>";
+          }
+          if (lang == "SP") {
+            isay =
+              isay +
+              "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alambre despu&eacute;s = 0." +
+              dummy +
+              " gramos<BR><BR>";
+            isay =
+              isay + "variaci&oacute;n de la masa = _________ gramos<BR><BR>";
+          }
+
+          d.write(isay);
+          if (textfinal != " ") {
+            isay = "&nbsp;" + textfinal + " <sup>o</sup>C<BR>";
+            isay =
+              isay + "&nbsp;&nbsp;&nbsp;" + textinit + " <sup>o</sup>C<BR><BR>";
+            isay = isay + "delta-T = _____________ K<BR><BR>";
+          } else {
+            isay = "&nbsp;<BR><BR><BR><BR><BR>";
+          }
+          isay =
+            isay +
+            '<BR><BR><BR><A Href = "" onClick = "self.close();"><IMG SRC = ' +
+            Lgraph.src +
+            " height = 30 width = 120></a><BR>";
+          isay = isay + "</td></tr></table></FORM></BODY>";
+          d.write(isay);
+          d.close();
+        }
+      }
+
+      function loadImages() {
+        if (document.getElementById) {
+          // DOM3 = IE5, NS6
+          document.getElementById("hidepage").style.visibility = "hidden";
+        } else {
+          if (document.layers) {
+            // Netscape 4
+            document.hidepage.visibility = "hidden";
+          } else {
+            // IE 4
+            document.all.hidepage.style.visibility = "hidden";
+          }
+        }
+        setTimeout("eval(temp)", 1000);
+        setTimeout("putVals()", 2000);
+      }
+    </script>
+  </head>
+  <body bgcolor="#FFFFCC" OnLoad="loadImages();">
+    <div
+      id="hidepage"
+      style="
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        background-color: #ffffcc;
+        layer-background-color: #ffffcc;
+        height: 100%;
+        width: 100%;
+      "
+    >
+      <table width="100%">
+        <tr>
+          <td>
+            <center>
+              Page loading ... Please wait.<br />
+              Thanks to Gilbert Davis for the HidePage script<br />
+              and to: The JavaScript Source!! http://javascript.internet.com
+            </center>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <a name="top"></a><br />
+    <form name="CForm">
+      <table>
+        <tr>
+          <td><img src="spc.gif" border="0" height="30" width="470" /></td>
+
+          <td>
+            <center>
+              <input
+                type="text"
+                name="weight"
+                size="15"
+                onkeypress="return false;"
+                onMouseDown="return false;"
+              /><br />
+              <div
+                name="sampleweight"
+                style="text-align: center; width: 120px; height: 30px"
+                border="1"
+                height="30"
+                width="120"
+              >
+                Sample weight
+              </div>
+            </center>
+          </td>
+          <td valign="top">
+            <a href="" onClick="changit('W');return false;">
+              <div
+                name="change1"
+                style="
+                  text-align: center;
+                  width: 120px;
+                  height: 30px;
+                  border: 1px solid black;
+                "
+                border="1"
+                height="30"
+                width="120"
+              >
+                Change
+              </div>
+            </a>
+          </td>
+        </tr>
+
+        <tr>
+          <td><img src="spc.gif" border="0" height="30" width="470" /></td>
+
+          <td>
+            <center>
+              <input
+                type="text"
+                name="water"
+                size="15"
+                onkeypress="return false;"
+                onMouseDown="return false;"
+              /><br />
+              <div
+                name="watertemp"
+                style="text-align: center; width: 120px; height: 30px"
+                border="1"
+                height="30"
+                width="120"
+              >
+                Water temp
+              </div>
+            </center>
+          </td>
+          <td valign="top">
+            <a href="" onClick="changit('T');return false;">
+              <div
+                name="change2"
+                style="
+                  text-align: center;
+                  width: 120px;
+                  height: 30px;
+                  border: 1px solid black;
+                "
+                border="1"
+                height="30"
+                width="120"
+              >
+                Change
+              </div> </a
+            ><br />
+          </td>
+        </tr>
+
+        <tr>
+          <td><img src="spc.gif" border="0" height="30" width="470" /></td>
+
+          <td>
+            <center>
+              <input
+                type="text"
+                name="room"
+                size="15"
+                onkeypress="return false;"
+                onMouseDown="return false;"
+              /><br />
+              <div
+                name="roomtemp"
+                style="text-align: center; width: 120px; height: 30px"
+                border="1"
+                height="30"
+                width="120"
+              >
+                Room temp
+              </div>
+            </center>
+          </td>
+        </tr>
+
+        <tr>
+          <td><img src="spc.gif" border="0" height="30" width="470" /></td>
+
+          <td>
+            <center>
+              <input
+                type="text"
+                name="wirebefore"
+                size="15"
+                onkeypress="return false;"
+                onMouseDown="return false;"
+              /><br />
+              <div
+                name="wbefore"
+                style="text-align: center; width: 120px; height: 30px"
+                border="1"
+                height="30"
+                width="120"
+              >
+                Wire before
+              </div>
+            </center>
+          </td>
+        </tr>
+
+        <tr>
+          <td><img src="spc.gif" border="0" height="30" width="470" /></td>
+
+          <td>
+            <center>
+              <input
+                type="text"
+                name="wireafter"
+                size="15"
+                onkeypress="return false;"
+                onMouseDown="return false;"
+              /><br />
+              <div
+                name="wafter"
+                style="text-align: center; width: 120px; height: 30px"
+                border="1"
+                height="30"
+                width="120"
+              >
+                Wire after
+              </div>
+            </center>
+          </td>
+          <td valign="top">
+            <a href="" onClick="printit();return false;">
+              <center>
+                <div
+                  name="view"
+                  style="
+                    text-align: center;
+                    width: 120px;
+                    height: 30px;
+                    border: 1px solid black;
+                  "
+                  border="1"
+                  height="30"
+                  width="120"
+                >
+                  View Data
+                </div>
+              </center></a
+            >
+          </td>
+        </tr>
+
+        <tr>
+          <td><img src="spc.gif" border="0" height="30" width="470" /></td>
+
+          <td>
+            <center>
+              <a href="" onClick="burnit();return false">
+                <div
+                  name="burn"
+                  style="
+                    text-align: center;
+                    width: 120px;
+                    height: 30px;
+                    border: 1px solid black;
+                  "
+                  border="1"
+                  height="30"
+                  width="120"
+                >
+                  Ignite sample
+                </div>
+              </a>
+            </center>
+          </td>
+          <td valign="top">
+            <a href="" onClick="extrapolate();return false;">
+              <center>
+                <div
+                  name="ext"
+                  style="
+                    text-align: center;
+                    width: 120px;
+                    height: 30px;
+                    border: 1px solid black;
+                  "
+                  border="1"
+                  height="30"
+                  width="120"
+                >
+                  Extrapolate
+                </div>
+              </center></a
+            >
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

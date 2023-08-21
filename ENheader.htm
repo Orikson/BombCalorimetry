@@ -1,1 +1,141 @@
-<!doctype html public "-//w3c//dtd html 4.0 transitional//en"><html><head>   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">   <meta name="GENERATOR" content="Mozilla/4.74 (Macintosh; U; PPC) [Netscape]"><script LANGUAGE="JavaScript">var lang = "EN";var instclosed = 0;var discclosed = 0;var choice = 1;var dummy = "";var cBomb = 1182 + 600*Math.random();var tRoom = 22 + 3.8*Math.random();var sampleWgt = Math.round(9000 + 2000*Math.random())/10000;var tWater = 24 + 0.1*Math.round(0.5 + 4*Math.random());var yourName = "?";dummy = Math.round(10*tRoom) + "A";tRoom = dummy.substring(0,2) + "." + dummy.substring(2,3);dummy = Math.round(10*tWater) + "A";tWater = dummy.substring(0,2) + "." + dummy.substring(2,3);function giveInfo(){gURL = "ENinfo.htm"if (document.layers) {			window.open(gURL,'infoWdw', 'menubar,width=480,height=300,screenY = 600');		}else{			window.open(gURL,'infoWdw', 'menubar,width=480,height=300,top = 220');		}}function goSamples(){var gURL = "ENsamples.htm";parent.BB.location = gURL;}</script></head><body bgcolor="#FFFFCC"><center><a NAME="top"></a><b><font color="#043D06"><font size=+1>Bomb Calorimeter- A Simulated Experiment</font></font></b><br><b>copyright 2002&nbsp;&nbsp; Gary L. Bertrand</b><form NAME = 'AForm'><p><b><A Href = "" onClick = "goSamples();return false;">Choose a Sample</a>&nbsp;&nbsp; <a href="" onClick="window.open('ENdisc.htm','DISCUSSION','scrollbars');return false;">Discussion</a>&nbsp;&nbsp;<a href="" onClick="window.open('ENinst.htm','INSTRUCTIONS','scrollbars');return false;">Instructions</a>&nbsp;&nbsp; <a href="" onClick= "giveInfo();return false;">Constants</a>&nbsp;&nbsp; <a href="" onClick= "parent.close();">return to main page</a></b></center></form></body></html>
+<!DOCTYPE html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta
+      name="GENERATOR"
+      content="Mozilla/4.74 (Macintosh; U; PPC) [Netscape]"
+    />
+    <script language="JavaScript">
+      var lang = "EN";
+
+      var instclosed = 0;
+      var discclosed = 0;
+      var choice = 1;
+      var dummy = "";
+      var cBomb = 1182 + 600 * Math.random();
+      var tRoom = 22 + 3.8 * Math.random();
+      var sampleWgt = Math.round(9000 + 2000 * Math.random()) / 10000;
+      var tWater = 24 + 0.1 * Math.round(0.5 + 4 * Math.random());
+      var yourName = "?";
+
+      dummy = Math.round(10 * tRoom) + "A";
+      tRoom = dummy.substring(0, 2) + "." + dummy.substring(2, 3);
+      dummy = Math.round(10 * tWater) + "A";
+      tWater = dummy.substring(0, 2) + "." + dummy.substring(2, 3);
+
+	  // handle events
+	  if (window.addEventListener) {
+	  	window.addEventListener("message", receiveMessage, false);
+	  } else if (window.attachEvent) {
+		window.attachEvent('onmessage',receiveMessage);
+	  }
+	  function receiveMessage(event) {
+		var parse = event.data.split("=");
+
+		if (parse.length == 1) {
+			if (event.data == "yourName") {
+				event.source.postMessage(`yourName=${yourName}`, event.origin);
+			} else if (event.data == "tRoom") {
+        event.source.postMessage(`tRoom=${tRoom}`, event.origin);
+      } else if (event.data == "tWater") {
+        event.source.postMessage(`tWater=${tWater}`, event.origin);
+      } else if (event.data == "cBomb") {
+        event.source.postMessage(`cBomb=${cBomb}`, event.origin);
+      } else if (event.data == "sampleWgt") {
+        event.source.postMessage(`sampleWgt=${sampleWgt}`, event.origin);
+      } else if (event.data == "choice") {
+        event.source.postMessage(`choice=${choice}`, event.origin);
+      } else if (event.data == "instclosed") {
+        event.source.postMessage(`instclosed=${instclosed}`, event.origin);
+      } else if (event.data == "discclosed") {
+        event.source.postMessage(`discclosed=${discclosed}`, event.origin);
+      } else if (event.data == "lang") {
+        event.source.postMessage(`lang=${lang}`, event.origin);
+      } else if (event.data == "dummy") {
+        event.source.postMessage(`dummy=${dummy}`, event.origin);
+      }
+		} else {
+			if (parse[0] == "yourName") {
+				yourName = parse[1];
+			} else if (parse[0] == "tRoom") {
+				tRoom = Number(parse[1]);
+			} else if (parse[0] == "tWater") {
+				tWater = Number(parse[1]);
+			} else if (parse[0] == "cBomb") {
+				cBomb = Number(parse[1]);
+			} else if (parse[0] == "sampleWgt") {
+				sampleWgt = Number(parse[1]);
+			} else if (parse[0] == "choice") {
+				choice = Number(parse[1]);
+			} else if (parse[0] == "instclosed") {
+				instclosed = Number(parse[1]);
+			} else if (parse[0] == "discclosed") {
+				discclosed = Number(parse[1]);
+			} else if (parse[0] == "lang") {
+				lang = parse[1];
+			} else if (parse[0] == "dummy") {
+				dummy = parse[1];
+			}
+		}
+	  }
+	  
+
+      function giveInfo() {
+        gURL = "ENinfo.htm";
+        if (document.layers) {
+          window.open(
+            gURL,
+            "infoWdw",
+            "menubar,width=480,height=300,screenY = 600"
+          );
+        } else {
+          window.open(
+            gURL,
+            "infoWdw",
+            "menubar,width=480,height=300,top = 220"
+          );
+        }
+      }
+
+      function goSamples() {
+        var gURL = "ENsamples.htm";
+        parent.BB.location = gURL;
+      }
+    </script>
+  </head>
+  <body bgcolor="#FFFFCC">
+    <center>
+      <a name="top"></a>
+      <b
+        ><font color="#043D06"
+          ><font size="+1"
+            >Bomb Calorimeter - A Simulated Experiment</font
+          ></font
+        ></b
+      ><br />
+      <b>copyright 2002&nbsp;&nbsp; Gary L. Bertrand</b>
+      <form name="AForm">
+        <p>
+          <b
+            ><a href="" onClick="goSamples();return false;">Choose a Sample</a
+            >&nbsp;&nbsp;
+            <a
+              href=""
+              onClick="window.open('ENdisc.htm','DISCUSSION','scrollbars');return false;"
+              >Discussion</a
+            >&nbsp;&nbsp;
+            <a
+              href=""
+              onClick="window.open('ENinst.htm','INSTRUCTIONS','scrollbars');return false;"
+              >Instructions</a
+            >&nbsp;&nbsp;
+            <a href="" onClick="giveInfo();return false;">Constants</a
+            >&nbsp;&nbsp;
+            <a href="" onClick="parent.close();">return to main page</a></b
+          >
+        </p>
+      </form>
+    </center>
+  </body>
+</html>

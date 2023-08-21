@@ -1,0 +1,821 @@
+<!DOCTYPE html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta
+      name="GENERATOR"
+      content="Mozilla/4.74 (Macintosh; U; PPC) [Netscape]"
+    />
+    <style>
+      .point {
+        position: absolute;
+      }
+    </style>
+    <script language="JavaScript">
+        var lang = "EN";
+        var nam = unescape(document.URL);
+        var idx = nam.indexOf("?sample=");
+        var sample = 1;
+        if (idx > -1) sample = nam.substring(idx + 8);
+  
+        var Ltime = new Image();
+        Ltime.src = lang + "time.gif";    // "time (min)"
+        var SBlack = new Image();
+        SBlack.src = "black.gif";         // Not sure (black line?)
+        var SBlue = new Image();
+        SBlue.src = "blue.gif";           // Not sure (blue line?)
+        var SRed = new Image();
+        SRed.src = "red.gif";             // Not sure (red line?)
+        var STemp = new Image();
+        STemp.src = "temp.gif";           // temp (C)
+  
+        var ACode =
+          '<div class="point" id="GG"><img src= "XXX" border = "0" width="WW" height="1"></div>\n';
+        var ECode =
+          '<div class="point" id="GG"><img src= "XXX" border = "0" width="5" height="1"></div>\n';
+        var DCode =
+          '<div class="point" id="GG"><img src= "XXX" border = "0" width="1" height="HH"></div>\n';
+        var BCode =
+          '<div class="point" id="A3"><img src= "XXX" border = "0" width="22" height="13"></div>\n';
+        var CCode =
+          '<div class="point" id="A4"><img src= "XXX" name = "time" border = "0" width="120" height="30"></div>\n';
+  
+        var HCode =
+          '<div class="point" id="A1"><img src= "hgrid.gif" border = "0" width="399" height="28"></div>\n';
+        var VCode =
+          '<div class="point" id="A2"><img src= "vgrid.gif" border = "0" width="44" height="209"></div>\n';
+  
+        var ArrowCode =
+          '<div class="point" id="XX"><A Href = "" onClick = "movit(YY);return false;"><img src= "ZZ.gif" border = "0" width="16" height="13"></a></div>\n';
+        var spc = new Image();
+        spc.src = "spc.gif";
+  
+        var yourName = parent.frames[0].yourName;
+        var Sample = new Array(20);
+        var times = new Array();
+        var temps = new Array();
+        var textCode = "";
+        var leftCode = "";
+        var topCode = "";
+        var hideme = "document.GG.visibility = 'hide'";
+        var showme = "document.GG.visibility = 'show'";
+        var KCode = "";
+        var sKey = "";
+        var lKey = "";
+        var isay = "";
+        var i = 1;
+        var minXpos = 70;
+        var maxYpos = 350; //250
+        if (document.getElementById) maxYpos = 250;
+        var who = "";
+        var choice = sample; //parent.frames[0].choice;
+        var sn = 0;
+  
+        var beforeMsg = "<font color=blue><b>";
+        var afterMsg = "</b></font>";
+        var textStr = "";
+        var textinit = " ";
+        var textfinal = " ";
+        var temp = " ";
+        var tempinit = " ";
+        var tempfinal = " ";
+        var textLeft = minXpos + 150;
+        var textTop = maxYpos - 200;
+        var initLeft = minXpos + 250;
+        var initTop = maxYpos - 30;
+        var finalLeft = minXpos + 30;
+        var finalTop = maxYpos - 220;
+  
+        var cBomb = 0;//parent.frames[0].cBomb;
+        var cContents = 50;
+        var cParts = 150;
+        var cWater = 8368 + 8 * Math.random();
+        var cRig = cWater + cParts;
+        var cTotal = cBomb + cContents + cWater + cParts;
+        var sampleWgt = Math.round(9000 + 2000 * Math.random()) / 10000;
+        var tWater = 24 + 0.1 * Math.round(0.5 + 4 * Math.random());
+        var tRoom = 0; //parent.frames[0].tRoom;
+        var wireWgt = (200 + 100 * Math.random()) / 10000;
+        var wireLoss = (19.99 + 80 * Math.random()) / 10000;
+        var wireAfter = wireWgt - wireLoss;
+        var kBomb = 1500;
+        var kGas = 100;
+        var kWater = 12;
+  
+        var aslope = 0;
+        var bslope = 0;
+        var aint = 0;
+        var bint = 0;
+        var adev = 0;
+        var bdev = 0;
+        var Tinit = 0;
+        var Tfinal = 0;
+        var Xpos = 128;
+        var dataList = "";
+  
+        // Samples
+        Sample[0] = {
+          sName: "iron wire",
+          sC: "",
+          sH: "",
+          sO: "",
+          sG: "",
+          sM: "",
+          sE: "5858",
+        };
+        Sample[1] = {
+          sName: "benzoic acid",
+          sC: "7",
+          sH: "6",
+          sO: "2",
+          sG: "0.5",
+          sM: "122.113",
+          sE: "26415",
+        };
+        Sample[2] = {
+          sName: "stearic acid",
+          sC: "18",
+          sH: "36",
+          sO: "2",
+          sG: "8",
+          sM: "284.473",
+          sE: "39585",
+        };
+        Sample[3] = {
+          sName: "palmitic acid",
+          sC: "16",
+          sH: "32",
+          sO: "2",
+          sG: "7",
+          sM: "256.419",
+          sE: "38845",
+        };
+        Sample[4] = {
+          sName: "myristic acid",
+          sC: "14",
+          sH: "28",
+          sO: "2",
+          sG: "6",
+          sM: "228.365",
+          sE: "37932",
+        };
+        Sample[5] = {
+          sName: "lauric acid",
+          sC: "12",
+          sH: "24",
+          sO: "2",
+          sG: "5",
+          sM: "200.311",
+          sE: "36768",
+        };
+        Sample[6] = {
+          sName: "capric acid",
+          sC: "10",
+          sH: "20",
+          sO: "2",
+          sG: "4",
+          sM: "172.257",
+          sE: "35236",
+        };
+        Sample[7] = {
+          sName: "fumaric acid",
+          sC: "4",
+          sH: "4",
+          sO: "4",
+          sG: "-1",
+          sM: "116.052",
+          sE: "11522",
+        };
+        Sample[8] = {
+          sName: "maleic acid",
+          sC: "4",
+          sH: "4",
+          sO: "4",
+          sG: "-1",
+          sM: "116.052",
+          sE: "11699",
+        };
+        Sample[9] = {
+          sName: "maleic anhydride",
+          sC: "4",
+          sH: "2",
+          sO: "3",
+          sG: "-1",
+          sM: "98.042",
+          sE: "14198",
+        };
+        Sample[10] = {
+          sName: "naphthalene",
+          sC: "10",
+          sH: "8",
+          sO: "0",
+          sG: "2",
+          sM: "128.174",
+          sE: "40171",
+        };
+        Sample[11] = {
+          sName: "benzil",
+          sC: "14",
+          sH: "10",
+          sO: "2",
+          sG: "1.5",
+          sM: "210.222",
+          sE: "32316",
+        };
+        Sample[12] = {
+          sName: "diphenyl",
+          sC: "12",
+          sH: "10",
+          sO: "0",
+          sG: "2.5",
+          sM: "154.212",
+          sE: "40483",
+        };
+        Sample[13] = {
+          sName: "decane",
+          sC: "10",
+          sH: "22",
+          sO: "0",
+          sG: "5.5",
+          sM: "142.285",
+          sE: "47253",
+        };
+        Sample[14] = {
+          sName: "eicosane",
+          sC: "20",
+          sH: "42",
+          sO: "0",
+          sG: "11.5",
+          sM: "282.555",
+          sE: "47034",
+        };
+        Sample[15] = {
+          sName: "galactose",
+          sC: "6",
+          sH: "12",
+          sO: "6",
+          sG: "0",
+          sM: "180.126",
+          sE: "15565",
+        };
+        Sample[16] = {
+          sName: "glucose",
+          sC: "6",
+          sH: "12",
+          sO: "6",
+          sG: "0",
+          sM: "180.126",
+          sE: "15559",
+        };
+        Sample[17] = {
+          sName: "fructose",
+          sC: "6",
+          sH: "12",
+          sO: "6",
+          sG: "0",
+          sM: "180.126",
+          sE: "15609",
+        };
+        Sample[18] = {
+          sName: "sucrose",
+          sC: "12",
+          sH: "22",
+          sO: "11",
+          sG: "0",
+          sM: "342.241",
+          sE: "16482",
+        };
+        if (lang == "FR" && !document.getElementById) {
+          Sample[1].sName = "Acide benzo&iuml;que";
+          Sample[2].sName = "Acide st&eacute;arique";
+          Sample[3].sName = "Acide palmitique";
+          Sample[4].sName = "Acide myristiqueD&eacute;cane (liq)";
+          Sample[5].sName = "Acide laurique";
+          Sample[6].sName = "Acide caprique";
+          Sample[7].sName = "Acide fumarique";
+          Sample[8].sName = "Acide mal&eacute;ique";
+          Sample[9].sName = "Anhydride mal&eacute;ique";
+          Sample[10].sName = "Naphthal&egrave;ne";
+          Sample[11].sName = "Benzil";
+          Sample[12].sName = "Diph&eacute;nyle";
+          Sample[13].sName = "D&eacute;cane (liq)";
+          Sample[18].sName = "Saccharose";
+        }
+  
+        // Sample string
+        function pickit() {
+          textStr = Sample[choice].sName;
+          if (!document.getElementById) {
+            textStr += "    C";
+            if (Sample[choice].sC > 1)
+              textStr += "<sub>" + Sample[choice].sC + "</sub>";
+  
+            if (Sample[choice].sH > 0) {
+              textStr += "H";
+              if (Sample[choice].sH > 1)
+                textStr += "<sub>" + Sample[choice].sH + "</sub>";
+            }
+  
+            if (Sample[choice].sO > 0) {
+              textStr += "O";
+              if (Sample[choice].sO > 1)
+                textStr += "<sub>" + Sample[choice].sO + "</sub>";
+            }
+          }
+        }
+  
+        // Setup HTML
+        function setupHTML() {
+          if (document.layers) {
+              leftCode = "document.GG.left = ";
+              topCode = "document.GG.top = ";
+              refY = 62;
+            }
+            if (document.getElementById && !document.all) {
+              topCode = 'document.getElementById("GG").style.top = ';
+              leftCode = 'document.getElementById("GG").style.left = ';
+              showme = 'document.getElementById("GG").style.visibility = "visible"';
+              hideme = 'document.getElementById("GG").style.visibility = "hidden"';
+              document.write("<font color = '#FFFFCC'>A</font>");
+            }
+            if (document.all) {
+              leftCode = "document.all.GG.style.left = ";
+              topCode = "document.all.GG.style.top = ";
+              hideme = "document.all.GG.style.visibility = 'hidden'";
+              showme = "document.all.GG.style.visibility = 'visible'";
+            }
+        }
+  
+        // Setup messaging
+        function setupMessage() {
+          textTop = maxYpos - 200;
+  
+          document.write(HCode);
+          eval(leftCode.replace(/GG/, "A1") + (minXpos + 30));
+          eval(topCode.replace(/GG/, "A1") + maxYpos);
+  
+          document.write(VCode);
+          eval(leftCode.replace(/GG/, "A2") + minXpos);
+          eval(topCode.replace(/GG/, "A2") + (maxYpos - 188));
+  
+          document.write(BCode.replace(/"XXX"/, STemp.src));
+          eval(leftCode.replace(/GG/, "A3") + (minXpos - 40));
+          eval(topCode.replace(/GG/, "A3") + (maxYpos - 120));
+  
+          document.write(CCode.replace(/"XXX"/, Ltime.src));
+          eval(leftCode.replace(/GG/, "A4") + (minXpos + 175));
+          eval(topCode.replace(/GG/, "A4") + (maxYpos + 27)); //22
+  
+          document.write(
+            DCode.replace(/GG/, "A5")
+              .replace(/HH/, 200)
+              .replace(/"XXX"/, SBlue.src)
+          );
+          eval(leftCode.replace(/GG/, "A5") + (minXpos + 160));
+          eval(topCode.replace(/GG/, "A5") + (maxYpos - 185));
+          eval(hideme.replace(/GG/, "A5"));
+  
+          document.write(
+            ArrowCode.replace(/XX/, "A6")
+              .replace(/YY/, "2")
+              .replace(/ZZ/, "rArrow")
+          );
+          eval(leftCode.replace(/GG/, "A6") + (minXpos + 162));
+          eval(topCode.replace(/GG/, "A6") + (maxYpos + 31));
+          eval(hideme.replace(/GG/, "A6"));
+  
+          document.write(
+            ArrowCode.replace(/XX/, "A7")
+              .replace(/YY/, "1")
+              .replace(/ZZ/, "lArrow")
+          );
+          eval(leftCode.replace(/GG/, "A7") + (minXpos + 142));
+          eval(topCode.replace(/GG/, "A7") + (maxYpos + 31));
+          eval(hideme.replace(/GG/, "A7"));
+  
+          minXpos = minXpos + 32;
+          for (i == 1; i < 6; i++) {
+            who = "p" + i;
+            document.write(
+              ACode.replace(/GG/, who)
+                .replace(/WW/, 20)
+                .replace(/"XXX"/, SBlack.src)
+            );
+          }
+          i = 101;
+          for (i == 101; i < 201; i++) {
+            who = "p" + i;
+            document.write(
+              ACode.replace(/GG/, who)
+                .replace(/WW/, 1)
+                .replace(/"XXX"/, SBlack.src)
+            );
+          }
+          i = 11;
+          for (i == 11; i < 19; i++) {
+            who = "p" + 20 * i;
+            document.write(
+              ACode.replace(/GG/, who)
+                .replace(/WW/, 20)
+                .replace(/"XXX"/, SBlack.src)
+            );
+          }
+          i = 1;
+          for (i == 1; i < 50; i++) {
+            who = "q" + i;
+            document.write(ECode.replace(/GG/, who).replace(/"XXX"/, SRed.src));
+  
+            who = "r" + i;
+            document.write(ECode.replace(/GG/, who).replace(/"XXX"/, SRed.src));
+          }
+  
+          if (document.layers) {
+            document.write(
+              '<ilayer id="message" height=25 width=200><layer id="message2" height=25 width=200></layer></ilayer>'
+            );
+            temp =
+              "document.message.document.message2.document.write(beforeMsg + textStr + afterMsg);" +
+              "document.message.document.message2.document.close()";
+            eval(hideme.replace(/GG/, "message"));
+  
+            document.write(
+              '<ilayer id="m2" height=25 width=200><layer id="m2a" height=25 width=200></layer></ilayer>'
+            );
+            tempinit =
+              "document.m2.document.m2a.document.write(beforeMsg + textinit + afterMsg);" +
+              "document.m2.document.m2a.document.close()";
+            eval(hideme.replace(/GG/, "m2"));
+  
+            document.write(
+              '<ilayer id="m3" height=25 width=200><layer id="m3a" height=25 width=200></layer></ilayer>'
+            );
+            tempfinal =
+              "document.m3.document.m3a.document.write(beforeMsg + textfinal + afterMsg);" +
+              "document.m3.document.m3a.document.close()";
+            eval(hideme.replace(/GG/, "m3"));
+  
+            textTop = textTop - 25;
+          } else if (document.getElementById && !document.all) {
+            document.write(
+              beforeMsg +
+                '<div id="message" style="position:absolute;">----</div>' +
+                afterMsg
+            );
+            temp =
+              'document.getElementById("message").firstChild.nodeValue = textStr;';
+            textLeft = textLeft + 5;
+            textTop = textTop - 20;
+            eval(hideme.replace(/GG/, "message"));
+  
+            document.write(
+              beforeMsg +
+                '<div id="m2" style="position:absolute;">----</div>' +
+                afterMsg
+            );
+            tempinit =
+              'document.getElementById("m2").firstChild.nodeValue = textinit;';
+            initLeft = initLeft + 5;
+            initTop = initTop - 20;
+            eval(hideme.replace(/GG/, "m2"));
+  
+            document.write(
+              beforeMsg +
+                '<div id="m3" style="position:absolute;">----</div>' +
+                afterMsg
+            );
+            tempfinal =
+              'document.getElementById("m3").firstChild.nodeValue = textfinal;';
+            finalLeft = finalLeft + 5;
+            finalTop = finalTop + 10;
+            eval(hideme.replace(/GG/, "m3"));
+          } else if (document.all) {
+            document.write(
+              beforeMsg +
+                '<div id="message" style="position:relative;">IE division</div>' +
+                afterMsg
+            );
+            temp = "message.innerHTML = textStr;";
+            textLeft = textLeft + 5;
+            textTop = textTop - 20;
+            eval(hideme.replace(/GG/, "message"));
+  
+            document.write(
+              beforeMsg +
+                '<div id="m2" style="position:relative;">IE division</div>' +
+                afterMsg
+            );
+            tempinit = "m2.innerHTML = textinit;";
+            initLeft = initLeft + 5;
+            initTop = initTop - 20;
+            eval(hideme.replace(/GG/, "m2"));
+  
+            document.write(
+              beforeMsg +
+                '<div id="m3" style="position:relative;">IE division</div>' +
+                afterMsg
+            );
+            tempfinal = "m3.innerHTML = textfinal;";
+            finalLeft = finalLeft + 5;
+            finalTop = finalTop - 20;
+            eval(hideme.replace(/GG/, "m3"));
+  
+            if (navigator.platform.indexOf("Win") > -1) initTop = initTop - 15;
+          }
+          eval(leftCode.replace(/GG/, "message") + textLeft);
+          eval(topCode.replace(/GG/, "message") + textTop);
+        }
+  
+        // Set global variables
+        function setup() {
+          // Setup HTML helper strings
+          setupHTML();
+  
+          // Set temp variables, message HTML, etc.
+          setupMessage();
+  
+          // Update text string
+          pickit();
+  
+          console.log(textStr);
+        }
+  
+        function loadImages() {
+          setup();
+  
+          if (document.getElementById) {
+            // DOM3 = IE5, NS6
+            document.getElementById("hidepage").style.visibility = "hidden";
+          } else {
+            if (document.layers) {
+              // Netscape 4
+              document.hidepage.visibility = "hidden";
+            } else {
+              // IE 4
+              document.all.hidepage.style.visibility = "hidden";
+            }
+          }
+          setTimeout(() => {
+            eval(temp);
+          }, 1000);
+          //setTimeout(() => {putVals()}, 2000);
+        }
+      </script>
+  </head>
+  <body bgcolor="#FFFFCC" OnLoad="loadImages();">
+    <div
+      id="hidepage"
+      style="
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        background-color: #ffffcc;
+        layer-background-color: #ffffcc;
+        height: 100%;
+        width: 100%;
+      "
+    >
+      <table width="100%">
+        <tr>
+          <td>
+            <center>
+              Page loading ... Please wait.<br />
+              Thanks to Gilbert Davis for the HidePage script<br />
+              and to: The JavaScript Source!! http://javascript.internet.com
+            </center>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <a name="top"></a><br />
+    <form name="CForm">
+      <table>
+        <tr>
+          <td><img src="spc.gif" border="0" height="30" width="470" /></td>
+
+          <td>
+            <center>
+              <input
+                type="text"
+                name="weight"
+                size="15"
+                onkeypress="return false;"
+                onMouseDown="return false;"
+              /><br />
+              <div
+                name="sampleweight"
+                style="text-align: center; width: 120px; height: 30px"
+                border="1"
+                height="30"
+                width="120"
+              >
+                Sample weight
+              </div>
+            </center>
+          </td>
+          <td valign="top">
+            <a href="" onClick="changit('W');return false;">
+              <div
+                name="change1"
+                style="
+                  text-align: center;
+                  width: 120px;
+                  height: 30px;
+                  border: 1px solid black;
+                "
+                border="1"
+                height="30"
+                width="120"
+              >
+                Change
+              </div>
+            </a>
+          </td>
+        </tr>
+
+        <tr>
+          <td><img src="spc.gif" border="0" height="30" width="470" /></td>
+
+          <td>
+            <center>
+              <input
+                type="text"
+                name="water"
+                size="15"
+                onkeypress="return false;"
+                onMouseDown="return false;"
+              /><br />
+              <div
+                name="watertemp"
+                style="text-align: center; width: 120px; height: 30px"
+                border="1"
+                height="30"
+                width="120"
+              >
+                Water temp
+              </div>
+            </center>
+          </td>
+          <td valign="top">
+            <a href="" onClick="changit('T');return false;">
+              <div
+                name="change2"
+                style="
+                  text-align: center;
+                  width: 120px;
+                  height: 30px;
+                  border: 1px solid black;
+                "
+                border="1"
+                height="30"
+                width="120"
+              >
+                Change
+              </div> </a
+            ><br />
+          </td>
+        </tr>
+
+        <tr>
+          <td><img src="spc.gif" border="0" height="30" width="470" /></td>
+
+          <td>
+            <center>
+              <input
+                type="text"
+                name="room"
+                size="15"
+                onkeypress="return false;"
+                onMouseDown="return false;"
+              /><br />
+              <div
+                name="roomtemp"
+                style="text-align: center; width: 120px; height: 30px"
+                border="1"
+                height="30"
+                width="120"
+              >
+                Room temp
+              </div>
+            </center>
+          </td>
+        </tr>
+
+        <tr>
+          <td><img src="spc.gif" border="0" height="30" width="470" /></td>
+
+          <td>
+            <center>
+              <input
+                type="text"
+                name="wirebefore"
+                size="15"
+                onkeypress="return false;"
+                onMouseDown="return false;"
+              /><br />
+              <div
+                name="wbefore"
+                style="text-align: center; width: 120px; height: 30px"
+                border="1"
+                height="30"
+                width="120"
+              >
+                Wire before
+              </div>
+            </center>
+          </td>
+        </tr>
+
+        <tr>
+          <td><img src="spc.gif" border="0" height="30" width="470" /></td>
+
+          <td>
+            <center>
+              <input
+                type="text"
+                name="wireafter"
+                size="15"
+                onkeypress="return false;"
+                onMouseDown="return false;"
+              /><br />
+              <div
+                name="wafter"
+                style="text-align: center; width: 120px; height: 30px"
+                border="1"
+                height="30"
+                width="120"
+              >
+                Wire after
+              </div>
+            </center>
+          </td>
+          <td valign="top">
+            <a href="" onClick="printit();return false;">
+              <center>
+                <div
+                  name="view"
+                  style="
+                    text-align: center;
+                    width: 120px;
+                    height: 30px;
+                    border: 1px solid black;
+                  "
+                  border="1"
+                  height="30"
+                  width="120"
+                >
+                  View Data
+                </div>
+              </center></a
+            >
+          </td>
+        </tr>
+
+        <tr>
+          <td><img src="spc.gif" border="0" height="30" width="470" /></td>
+
+          <td>
+            <center>
+              <a href="" onClick="burnit();return false">
+                <div
+                  name="burn"
+                  style="
+                    text-align: center;
+                    width: 120px;
+                    height: 30px;
+                    border: 1px solid black;
+                  "
+                  border="1"
+                  height="30"
+                  width="120"
+                >
+                  Ignite sample
+                </div>
+              </a>
+            </center>
+          </td>
+          <td valign="top">
+            <a href="" onClick="extrapolate();return false;">
+              <center>
+                <div
+                  name="ext"
+                  style="
+                    text-align: center;
+                    width: 120px;
+                    height: 30px;
+                    border: 1px solid black;
+                  "
+                  border="1"
+                  height="30"
+                  width="120"
+                >
+                  Extrapolate
+                </div>
+              </center></a
+            >
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
